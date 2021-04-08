@@ -23,19 +23,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.Separator;
-import javafx.scene.control.Slider;
-import javafx.scene.control.ToolBar;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.ArcType;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.scene.layout.Pane;
 
@@ -46,6 +36,29 @@ import javafx.scene.layout.Pane;
  * @author gorda
  */
 public class ProjectLayoutController implements Initializable {
+
+    @FXML
+    private Pane midleftbox;
+    @FXML
+    private ImageView leftmidpic;
+    @FXML
+    private Pane midrightbox;
+    @FXML
+    private ImageView rightmidpic;
+    @FXML
+    private Pane leftbox;
+    @FXML
+    private ImageView leftpic;
+    @FXML
+    private Pane rightbox;
+    @FXML
+    private ImageView rightpic;
+    @FXML
+    private TextField toptextbox;
+    @FXML
+    private Button answerfinder;
+    @FXML
+    private Button refresh;
 
     /**
      * Initializes the controller class.
