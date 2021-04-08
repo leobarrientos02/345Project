@@ -8,9 +8,6 @@ package semesterproject;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.net.URL;
@@ -20,23 +17,22 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.layout.Pane;
 
-
 /**
- * FXML Controller class
+ * FXML Controller class for Card Game Project
  *
  * @author gorda
  */
 public class ProjectLayoutController implements Initializable {
 
+    
     @FXML
     private Pane midleftbox;
     @FXML
@@ -60,9 +56,7 @@ public class ProjectLayoutController implements Initializable {
     @FXML
     private Button refresh;
 
-    /**
-     * Initializes the controller class.
-     */
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
