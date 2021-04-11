@@ -12,7 +12,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -50,9 +53,6 @@ public class ProjectLayoutController implements Initializable {
     private Button verifyButton;
     @FXML
     private Button quit;
-
-    
-
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -65,6 +65,19 @@ public class ProjectLayoutController implements Initializable {
 
     @FXML
     private void generateNewGame(ActionEvent event) {
+        
+        refresh = (Button)event.getSource();
+        
+        switch( refresh.getText()){
+            
+            case "Refresh Cards":
+    
+                Card1.setX(0);
+                Card1.setY(0);
+                
+                break;
+        }
+        
     }
 
     @FXML
@@ -73,6 +86,21 @@ public class ProjectLayoutController implements Initializable {
 
     @FXML
     private void quitProgram(ActionEvent event) {
+        
+        quit = (Button)event.getSource();
+        
+        switch( quit.getText()){
+            
+            case "Quit":
+                Alert alert = new Alert(AlertType.CONFIRMATION, "Are you sure you want to quit?");
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
+                        System.exit(0);
+                    }
+                });
+                
+                break;
+        }
     }
     
     

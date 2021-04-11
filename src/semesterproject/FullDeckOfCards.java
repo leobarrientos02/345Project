@@ -49,7 +49,7 @@ public class FullDeckOfCards extends Card{
         for (String suit:suits)
         {
             for (String faceName:faceNames)
-                deck.add(new Card(faceName,suit,value));
+                deck.add(new Card(/*faceName,suit,value*/));
         }
         
     }

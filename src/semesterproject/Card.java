@@ -19,7 +19,7 @@ public class Card {
     private Image image;
     protected Integer value;
  // constructor
-    public Card(String cardFace, String suit,Integer value) {
+    public Card() {
         setCardFace(cardFace);
         setSuit(suit);
         String fileName = cardFace + "_of_"+suit+".png";
