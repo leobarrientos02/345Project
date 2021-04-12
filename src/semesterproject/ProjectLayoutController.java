@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package semesterproject;
 
-
-
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,23 +24,30 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class for Card Game Project
  *
- * @author gorda
+ * @author gorda, Leonel Barrientos
  */
-public class ProjectLayoutController implements Initializable {
-
+public class ProjectLayoutController implements Initializable  {
     
-    // Images
+    // Images InputStream
     private InputStream stream;
     private InputStream stream2;
     private InputStream stream3;
     private InputStream stream4;
     
+    //Images
     private Image image1;
     private Image image2;
     private Image image3;
     private Image image4;
+    
+    //FileName
     private String fileName;
+    
+    //Value1-4 hold the value of the displayed card
     private int value1, value2, value3, value4;
+    
+    //Create a final answer
+    private final int FinalAnswer = 24;
     
     @FXML
     private AnchorPane anchorpane;
@@ -77,8 +83,6 @@ public class ProjectLayoutController implements Initializable {
             Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
     public String Generate_RandomCard(){
         //Generate a random card from the deck
         fileName="";
@@ -249,8 +253,8 @@ public class ProjectLayoutController implements Initializable {
         }
         value4 = getCardValue(fileName);
         
-        int answer = value1 + value2 + value3 + value4;
-        answerDisplay.setText(String.valueOf(answer));
+        //int answer = value1 + value2 + value3 + value4;
+        //answerDisplay.setText(String.valueOf(answer));
         
         
         // Create the image view
@@ -259,14 +263,31 @@ public class ProjectLayoutController implements Initializable {
         Card111.setImage(image3);
         Card1111.setImage(image4);
     }
+    public void ShowSolution(int value1,int value2, int value3, int value4){
+        String op="+";
+        String op2="-";
+        String op3="*";
+        Combinations combo = new Combinations(value1, value2, value3, value4, op, op2,op3);
+        int answer = value1 + value2 + value3 + value4;
+        if ( answer > FinalAnswer){
+            answerDisplay.setText("Passes 24      " +combo.PrintExpression());
+        }
+        else if ( answer < FinalAnswer){
+            answerDisplay.setText("Under 24");
+        }
+        else{
+            answerDisplay.setText(String.valueOf(answer));
+        }
+      
+    }    
 
     @FXML
     private void displaySolution(ActionEvent event) {
-        cheatkey = (Button)event.getSource();
+       cheatkey = (Button)event.getSource();
         
         switch( cheatkey.getText()){
-            case "Get Answer":
-
+            case "Show Solution":
+                ShowSolution(value1,value2,value3,value4);
                 break;
         }
     }
@@ -299,6 +320,4 @@ public class ProjectLayoutController implements Initializable {
                 break;
         }
     }
-    
-    
 }
