@@ -106,7 +106,7 @@ public class ProjectLayoutController implements Initializable {
     
         // Generate Random number for card value
         Random rn2 = new Random();
-        int answer2 = rn2.nextInt(12) + 1;
+        int answer2 = rn2.nextInt(13) + 1;
         switch (answer2) {
             case 1:
                 value = "ace";
@@ -136,12 +136,15 @@ public class ProjectLayoutController implements Initializable {
                 value = "9";
                 break;
             case 10:
-                value = "jack";
+                value ="10";
                 break;
             case 11:
-                value = "queen";
+                value = "jack";
                 break;
             case 12:
+                value = "queen";
+                break;
+            case 13:
                 value = "king";
                 break;
             default:
@@ -188,15 +191,18 @@ public class ProjectLayoutController implements Initializable {
                 break;
             case '9':
                 temp=9;
-                break;                
-            case 'j':
+                break;
+            case '1':
                 temp=10;
                 break;
-            case 'q':
+            case 'j':
                 temp=11;
                 break;
-            case 'k':
+            case 'q':
                 temp=12;
+                break;
+            case 'k':
+                temp=13;
                 break;
             default:
                 break;
