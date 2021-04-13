@@ -26,6 +26,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import static javafx.scene.input.KeyCode.ENTER;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -49,6 +51,8 @@ public class ProjectLayoutController implements Initializable {
     private String fileName;
     private int value1, value2, value3, value4;
     
+    private String userInput;
+    
     @FXML
     private AnchorPane anchorpane;
     @FXML
@@ -65,8 +69,6 @@ public class ProjectLayoutController implements Initializable {
     private Button cheatkey;
     @FXML
     private Button refresh;
-    @FXML
-    private TextArea TextExpression;
     @FXML
     private TextField checkAnswer;
     @FXML
@@ -273,12 +275,42 @@ public class ProjectLayoutController implements Initializable {
 
     @FXML
     private void generateNewGame() throws FileNotFoundException{
-        
-            ShowRandomCard();   
+        checkAnswer.clear();
+        ShowRandomCard();   
     }
 
     @FXML
     private void checkAnswer(ActionEvent event) {
+        
+        
+        verifyButton = (Button)event.getSource();
+        
+        switch ( verifyButton.getText()){
+            
+            case "Verify":
+                userInput = checkAnswer.getText();
+                if( userInput.equals("24")){
+                    Alert alert = new Alert(AlertType.CONFIRMATION, "Do you want to play again?");
+                    alert.setHeaderText("CORRECT");
+                    alert.showAndWait().ifPresent(response -> {
+                        if (response == ButtonType.OK) {
+                            try {
+                                checkAnswer.clear();
+                                ShowRandomCard();
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    });
+                }
+                else{
+                   Alert alert = new Alert(AlertType.ERROR, "WRONG ANSWER");
+                    alert.setHeaderText("WRONG");
+                    alert.showAndWait();          
+                }
+                
+            break;
+        }
     }
 
     @FXML

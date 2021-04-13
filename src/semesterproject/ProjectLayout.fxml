@@ -21,7 +21,10 @@
       <ImageView fx:id="Card111" fitHeight="323.0" fitWidth="206.0" layoutX="460.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
       <ImageView fx:id="Card1111" fitHeight="323.0" fitWidth="203.0" layoutX="678.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
       <Separator layoutX="8.0" layoutY="470.0" prefHeight="13.0" prefWidth="878.0" />
-      <TextField fx:id="answerDisplay" layoutX="272.0" layoutY="54.0" prefHeight="47.0" prefWidth="375.0" />
+      <TextField fx:id="answerDisplay" alignment="CENTER" editable="false" layoutX="272.0" layoutY="54.0" prefHeight="47.0" prefWidth="375.0">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font></TextField>
       <Button fx:id="cheatkey" layoutX="89.0" layoutY="57.0" mnemonicParsing="false" onAction="#displaySolution" prefHeight="38.0" prefWidth="173.0" text="Show Solution" textAlignment="CENTER">
          <font>
             <Font name="Calibri Bold" size="18.0" />
@@ -30,7 +33,10 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <TextField fx:id="checkAnswer" layoutX="280.0" layoutY="507.0" onAction="#checkAnswer" prefHeight="47.0" prefWidth="367.0" />
+      <TextField fx:id="checkAnswer" alignment="CENTER" layoutX="280.0" layoutY="507.0" onAction="#checkAnswer" prefHeight="47.0" prefWidth="367.0">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font></TextField>
       <Button fx:id="verifyButton" layoutX="665.0" layoutY="507.0" mnemonicParsing="false" onAction="#checkAnswer" prefHeight="38.0" prefWidth="146.0" text="Verify">
          <font>
             <Font name="System Bold" size="14.0" />
