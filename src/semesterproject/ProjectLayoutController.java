@@ -6,6 +6,7 @@
 package semesterproject;
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -27,6 +28,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
+import java.util.Date;
 
 /**
  * FXML Controller class for Card Game Project
@@ -91,6 +96,7 @@ public class ProjectLayoutController implements Initializable {
     
     public String Generate_RandomCard(){
         //Generate a random card from the deck
+       
         fileName="";
         String value ="";
         String cardType = "";
@@ -311,6 +317,7 @@ public class ProjectLayoutController implements Initializable {
                     }
                 }
          }
+        
     }
 
     @FXML
@@ -318,6 +325,7 @@ public class ProjectLayoutController implements Initializable {
         checkAnswer.clear();
         ShowRandomCard();
         answerDisplay.clear();
+        logAction();
     }
 
 
@@ -382,6 +390,7 @@ public class ProjectLayoutController implements Initializable {
                 Alert alert = new Alert(AlertType.CONFIRMATION, "Are you sure you want to quit?");
                 alert.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
+                        
                         System.exit(0);
                     }
                 });
@@ -389,5 +398,16 @@ public class ProjectLayoutController implements Initializable {
                 break;
         }
     }
+ 
+    public void logAction() throws FileNotFoundException{
+        File logFile = new File("log.txt");
+        try{
+        PrintWriter writer = new PrintWriter(logFile);
+        writer.println(System.currentTimeMillis() + " Action was Done");
     
+}
+        catch(FileNotFoundException e){
+            System.out.println("ERROR: %s");
+        }
+    }
 }
