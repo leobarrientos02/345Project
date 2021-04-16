@@ -229,10 +229,10 @@ public class ProjectLayoutController implements Initializable {
         value1 = getCardValue(fileName);
         
         String file2 = Generate_RandomCard();
-        while(file.equals(file2)){
+        if(file.equals(file2)){
             file2 = Generate_RandomCard();
         }
-        if( !file.equals(file2)){
+        if( file.equals(file2) == false){
             stream2 = new FileInputStream("src/images/"+ file2);
             image2 = new Image(stream2);           
         }
@@ -240,20 +240,20 @@ public class ProjectLayoutController implements Initializable {
         
         
         String file3 = Generate_RandomCard();
-        while(file3.equals(file2) || file3.equals(file)){
+        if(file3.equals(file2)|| file3.equals(file)){
             file3 = Generate_RandomCard();
         }
-        if(!file3.equals(file2) || !file3.equals(file)){
+        if(file3.equals(file2) == false || file3.equals(file) == false){
             stream3 = new FileInputStream("src/images/" + file3);
             image3 = new Image(stream3);            
         }
         value3 = getCardValue(fileName);     
         
         String file4 = Generate_RandomCard();
-        while(file4.equals(file3) || file4.equals(file3) || file4.equals(2)){
+        if(file4.equals(file3)|| file4.equals(file2) || file4.equals(file)){
             file4=Generate_RandomCard();
         }
-        if(!file4.equals(file3) || !file4.equals(file3) || !file4.equals(2)){
+        if(file4.equals(file3) == false || file4.equals(file3) == false || file4.equals(file) == false){
             stream4 = new FileInputStream("src/images/" + file4);
             image4 = new Image(stream4);
         }
