@@ -87,8 +87,12 @@ public class ProjectLayoutController implements Initializable {
     
             
     @Override
+
+
+
     public void initialize(URL url, ResourceBundle rb) {
         try {
+            logAction("Game Session Initialized", file);
             ShowRandomCard();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
@@ -230,6 +234,7 @@ public class ProjectLayoutController implements Initializable {
     }
     
     private void ShowRandomCard() throws FileNotFoundException{
+        logAction("Generated new Game", file);
         String file = Generate_RandomCard();
         stream = new FileInputStream("src/images/" + file);
         image1 = new Image(stream);
@@ -316,7 +321,7 @@ public class ProjectLayoutController implements Initializable {
                     if( s.indexOf(op) != -1){
                        solution = scanner.nextLine();
                        answerDisplay.setText(solution);
-                       logAction();
+                      logAction("Solution Displayed", file);
                     }
                 }
          }
@@ -328,7 +333,7 @@ public class ProjectLayoutController implements Initializable {
         checkAnswer.clear();
         ShowRandomCard();
         answerDisplay.clear();
-        logAction();
+        logAction("Generate new game", file);
     }
 
 
@@ -353,6 +358,7 @@ public class ProjectLayoutController implements Initializable {
                 //answerDisplay.setText(String.valueOf(temp));                      
                 
                 if( userInput.equals("24")){
+                    logAction("WON THE GAME", file);
                     Alert alert = new Alert(AlertType.CONFIRMATION,"Do you want to play again?");
                     alert.setHeaderText("CORRECT");
                     alert.showAndWait().ifPresent(response -> {
@@ -361,6 +367,7 @@ public class ProjectLayoutController implements Initializable {
                                 checkAnswer.clear();
                                 ShowRandomCard();
                                 answerDisplay.clear();
+                                logAction("Generate new game", file);
                             } catch (FileNotFoundException ex) {
                                 Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -368,11 +375,13 @@ public class ProjectLayoutController implements Initializable {
                     });
                 }
                 else if( userInput.isEmpty()){
+                    logAction("User input faulty", file);
                     Alert alert = new Alert(AlertType.ERROR, "Please Enter an Expression");
                     alert.setHeaderText("NO ANSWER");
                     alert.showAndWait();          
                 }
                 else{
+                    logAction("User input incorrect", file);
                     Alert alert = new Alert(AlertType.ERROR, "WRONG, NOT EQUAL TO 24");
                     alert.setHeaderText("WRONG");
                     alert.showAndWait();  
@@ -393,7 +402,7 @@ public class ProjectLayoutController implements Initializable {
                 Alert alert = new Alert(AlertType.CONFIRMATION, "Are you sure you want to quit?");
                 alert.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
-                        
+                        logAction("Quit the game", file);
                         System.exit(0);
                     }
                 });
@@ -401,14 +410,14 @@ public class ProjectLayoutController implements Initializable {
                 break;
         }
     }
- 
-    public void logAction(){
-       
+ File file = new File("log.txt");
+    public void logAction(String string,File file){
+        
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
         try{
         FileWriter writer = new FileWriter("log.txt");
-        writer.write(timeStamp +" Action was Done");
-        writer.write("new");
+        writer.write(timeStamp + string +" Action was Done by user.");
+     
         writer.close();
 }
         catch(IOException e){
