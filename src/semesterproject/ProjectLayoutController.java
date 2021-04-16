@@ -6,28 +6,26 @@
 package semesterproject;
 
 
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import static javafx.scene.input.KeyCode.ENTER;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -43,15 +41,19 @@ public class ProjectLayoutController implements Initializable {
     private InputStream stream2;
     private InputStream stream3;
     private InputStream stream4;
+    private InputStream stream5;
     
     private Image image1;
     private Image image2;
     private Image image3;
     private Image image4;
+    
     private String fileName;
     private int value1, value2, value3, value4;
     
     private String userInput;
+    
+    private Expression express;
     
     @FXML
     private AnchorPane anchorpane;
@@ -114,7 +116,7 @@ public class ProjectLayoutController implements Initializable {
     
         // Generate Random number for card value
         Random rn2 = new Random();
-        int answer2 = rn2.nextInt(12) + 1;
+        int answer2 = rn2.nextInt(13) + 1;
         switch (answer2) {
             case 1:
                 value = "ace";
@@ -144,12 +146,15 @@ public class ProjectLayoutController implements Initializable {
                 value = "9";
                 break;
             case 10:
-                value = "jack";
+                value="10";
                 break;
             case 11:
-                value = "queen";
+                value = "jack";
                 break;
             case 12:
+                value = "queen";
+                break;
+            case 13:
                 value = "king";
                 break;
             default:
@@ -196,15 +201,18 @@ public class ProjectLayoutController implements Initializable {
                 break;
             case '9':
                 temp=9;
-                break;                
-            case 'j':
-                temp=10;
                 break;
-            case 'q':
+            case '1':
+                temp =10;
+                break;
+            case 'j':
                 temp=11;
                 break;
-            case 'k':
+            case 'q':
                 temp=12;
+                break;
+            case 'k':
+                temp=13;
                 break;
             default:
                 break;
@@ -251,8 +259,9 @@ public class ProjectLayoutController implements Initializable {
         }
         value4 = getCardValue(fileName);
         
-        int answer = value1 + value2 + value3 + value4;
-        answerDisplay.setText(String.valueOf(answer));
+        //Testing if values are equal to cards on screen
+        //int answer = value1 + value2 + value3 + value4;
+        //answerDisplay.setText(String.valueOf(answer));
         
         
         // Create the image view
@@ -261,52 +270,101 @@ public class ProjectLayoutController implements Initializable {
         Card111.setImage(image3);
         Card1111.setImage(image4);
     }
-
+   
     @FXML
-    private void displaySolution(ActionEvent event) {
+    private void displaySolution(ActionEvent event) throws FileNotFoundException {
         cheatkey = (Button)event.getSource();
-        
         switch( cheatkey.getText()){
-            case "Get Answer":
-
-                break;
-        }
+            case "Show Solution":
+                
+                // SORT THE CARD VALUES
+                // The solutions txt file is sorted in accending order
+                // Sorting the values, would allow to find a solution with
+                // the random card values shown.
+                int digits[] = new int[4];
+                digits[0] = value1;
+                digits[1] = value2;
+                digits[2] = value3;
+                digits[3] = value4;
+                
+                int temp=0;
+                for (int i = 0; i < 4; i++) {
+                    for (int j = i + 1; j < 4; j++) { 
+                        if (digits[i] > digits[j]) {
+                            temp = digits[i];
+                            digits[i] = digits[j];
+                            digits[j] = temp;
+                        }
+                    }
+                }
+                // LETS FIND A SOLUTION
+                Expression s1 = new Expression(digits[0], digits[1],digits[2],digits[3]);
+                String op = " " + String.valueOf(s1.getValue1())+ " " + String.valueOf(s1.getValue2())+ " " +
+                        String.valueOf(s1.getValue3()) + " " + String.valueOf(s1.getValue4());
+                String solution="";
+                Scanner scanner = new Scanner(new FileInputStream("src/semesterproject/solution.txt"));
+                while(scanner.hasNextLine()){
+                    String s = scanner.nextLine();
+                    if( s.indexOf(op) != -1){
+                       solution = scanner.nextLine();
+                       answerDisplay.setText(solution);
+                    }
+                }
+         }
     }
 
     @FXML
     private void generateNewGame() throws FileNotFoundException{
         checkAnswer.clear();
-        ShowRandomCard();   
+        ShowRandomCard();
+        answerDisplay.clear();
     }
 
+
     @FXML
-    private void checkAnswer(ActionEvent event) {
+    private void checkAnswer(ActionEvent event) throws FileNotFoundException {
         
-        
+        userInput = checkAnswer.getText();
+                
         verifyButton = (Button)event.getSource();
         
         switch ( verifyButton.getText()){
             
+            
             case "Verify":
+       
                 userInput = checkAnswer.getText();
+                        
+                
+                express = new Expression();
+                               
+                String temp = express.PrintExpression(userInput);
+                //answerDisplay.setText(String.valueOf(temp));                      
+                
                 if( userInput.equals("24")){
-                    Alert alert = new Alert(AlertType.CONFIRMATION, "Do you want to play again?");
+                    Alert alert = new Alert(AlertType.CONFIRMATION,"Do you want to play again?");
                     alert.setHeaderText("CORRECT");
                     alert.showAndWait().ifPresent(response -> {
                         if (response == ButtonType.OK) {
                             try {
                                 checkAnswer.clear();
                                 ShowRandomCard();
+                                answerDisplay.clear();
                             } catch (FileNotFoundException ex) {
                                 Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
                     });
                 }
-                else{
-                   Alert alert = new Alert(AlertType.ERROR, "WRONG ANSWER");
-                    alert.setHeaderText("WRONG");
+                else if( userInput.isEmpty()){
+                    Alert alert = new Alert(AlertType.ERROR, "Please Enter an Expression");
+                    alert.setHeaderText("NO ANSWER");
                     alert.showAndWait();          
+                }
+                else{
+                    Alert alert = new Alert(AlertType.ERROR, "WRONG, NOT EQUAL TO 24");
+                    alert.setHeaderText("WRONG");
+                    alert.showAndWait();  
                 }
                 
             break;
@@ -331,6 +389,5 @@ public class ProjectLayoutController implements Initializable {
                 break;
         }
     }
-    
     
 }

@@ -5,15 +5,13 @@
  */
 package semesterproject;
 
+
 /**
  *
  * @author leoba
  */
-public class Combinations {
-    
-    private String operation1;
-    private String operation2;
-    private String operation3;
+public class Expression {
+       
     
     private int value1;
     private int value2;
@@ -48,62 +46,32 @@ public class Combinations {
         return value4;
     }
     
-    public void setOperation(String op){
-        operation1 = op;
-    }
-    public String getOperation(){
-        return operation1;
-    }
-
-    public void setOperation2(String op){
-        operation2 = op;
-    }
-    public String getOperation2(){
-        return operation2;
-    }
-    
-    public void setOperation3(String op){
-        operation3 = op;
-    }
-    public String getOperation3(){
-        return operation3;
-    }    
-    
     // Default Constructor
-    public Combinations(){
+    public Expression(){
         
         value1 = 0;
         value2= 0;
         value3=0;
         value4=0;
-        operation1 = "NONE";
-        operation2="NONE";
-        operation3="NONE";
     }
     
     //Constructor
-    public Combinations(int v1, int v2, int v3, int v4, String op, String op2, String op3){
+    public Expression(int v1, int v2, int v3, int v4){
         
         
         value1 = v1;
         value2 = v2;
         value3 = v3;
         value4 = v4;
-        operation1 = op;
-        operation2 = op2;
-        operation3 = op3;
         
     }
     
-    
-    public String PrintExpression(){
+    public String PrintExpression(String userInput){
         
-        String Expression;
-        Expression = String.valueOf(value1)+operation1+String.valueOf(value2)+operation2
-                +String.valueOf(value3)+operation3+String.valueOf(value4);
+        String Expression = String.valueOf(value1)+ "," + String.valueOf(value2) + ", " +
+                String.valueOf(value3) + ", " + String.valueOf(value4);
         return Expression;
     }
-    
-    
+        
     
 }
