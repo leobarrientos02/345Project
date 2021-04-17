@@ -243,6 +243,7 @@ public class ProjectLayoutController implements Initializable {
         if(file3.equals(file2)|| file3.equals(file)){
             file3 = Generate_RandomCard();
         }
+        
         if(file3.equals(file2) == false || file3.equals(file) == false){
             stream3 = new FileInputStream("src/images/" + file3);
             image3 = new Image(stream3);            
@@ -258,6 +259,7 @@ public class ProjectLayoutController implements Initializable {
             image4 = new Image(stream4);
         }
         value4 = getCardValue(fileName);
+            
         
         //Testing if values are equal to cards on screen
         //int answer = value1 + value2 + value3 + value4;
@@ -335,11 +337,9 @@ public class ProjectLayoutController implements Initializable {
        
                 userInput = checkAnswer.getText();
                         
+                express = new Expression(value1, value2, value3, value4);
                 
-                express = new Expression();
-                               
-                String temp = express.PrintExpression(userInput);
-                //answerDisplay.setText(String.valueOf(temp));                      
+                answerDisplay.setText(String.valueOf(express.calc(userInput)));
                 
                 if( userInput.equals("24")){
                     Alert alert = new Alert(AlertType.CONFIRMATION,"Do you want to play again?");
