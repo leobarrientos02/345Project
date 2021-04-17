@@ -19,7 +19,6 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -30,7 +29,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -42,13 +40,14 @@ import java.util.Date;
  */
 public class ProjectLayoutController implements Initializable {
 
-    
+    //FILE
+    private File f;
+    private PrintWriter pw= null;
     // Images
     private InputStream stream;
     private InputStream stream2;
     private InputStream stream3;
     private InputStream stream4;
-    private InputStream stream5;
     
     private Image image1;
     private Image image2;
@@ -87,12 +86,9 @@ public class ProjectLayoutController implements Initializable {
     
             
     @Override
-
-
-
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            logAction("Game Session Initialized", file);
+            logAction("GAME SESSION INITIALIZE");
             ShowRandomCard();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
@@ -234,7 +230,7 @@ public class ProjectLayoutController implements Initializable {
     }
     
     private void ShowRandomCard() throws FileNotFoundException{
-        logAction("Generated new Game", file);
+        logAction( "asked for new deck");
         String file = Generate_RandomCard();
         stream = new FileInputStream("src/images/" + file);
         image1 = new Image(stream);
@@ -323,7 +319,7 @@ public class ProjectLayoutController implements Initializable {
                     if( s.indexOf(op) != -1){
                        solution = scanner.nextLine();
                        answerDisplay.setText(solution);
-                      logAction("Solution Displayed", file);
+                      logAction("asked for Solution");
                     }
                 }
          }
@@ -335,7 +331,7 @@ public class ProjectLayoutController implements Initializable {
         checkAnswer.clear();
         ShowRandomCard();
         answerDisplay.clear();
-        logAction("Generate new game", file);
+        logAction("generated a new game");
     }
 
 
@@ -358,7 +354,7 @@ public class ProjectLayoutController implements Initializable {
                 answerDisplay.setText(String.valueOf(express.calc(userInput)));
                 
                 if( userInput.equals("24")){
-                    logAction("WON THE GAME", file);
+                    logAction("WON THE GAME");
                     Alert alert = new Alert(AlertType.CONFIRMATION,"Do you want to play again?");
                     alert.setHeaderText("CORRECT");
                     alert.showAndWait().ifPresent(response -> {
@@ -367,7 +363,7 @@ public class ProjectLayoutController implements Initializable {
                                 checkAnswer.clear();
                                 ShowRandomCard();
                                 answerDisplay.clear();
-                                logAction("Generate new game", file);
+                                logAction("generated a new game");
                             } catch (FileNotFoundException ex) {
                                 Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -375,13 +371,13 @@ public class ProjectLayoutController implements Initializable {
                     });
                 }
                 else if( userInput.isEmpty()){
-                    logAction("User input faulty", file);
+                    logAction("No User input");
                     Alert alert = new Alert(AlertType.ERROR, "Please Enter an Expression");
                     alert.setHeaderText("NO ANSWER");
                     alert.showAndWait();          
                 }
                 else{
-                    logAction("User input incorrect", file);
+                    logAction("User input incorrect");
                     Alert alert = new Alert(AlertType.ERROR, "WRONG, NOT EQUAL TO 24");
                     alert.setHeaderText("WRONG");
                     alert.showAndWait();  
@@ -402,7 +398,7 @@ public class ProjectLayoutController implements Initializable {
                 Alert alert = new Alert(AlertType.CONFIRMATION, "Are you sure you want to quit?");
                 alert.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
-                        logAction("Quit the game", file);
+                        logAction("QUIT THE GAME");
                         System.exit(0);
                     }
                 });
@@ -410,18 +406,22 @@ public class ProjectLayoutController implements Initializable {
                 break;
         }
     }
- File file = new File("log.txt");
-    public void logAction(String string,File file){
+    
+    
+    public void logAction(String event){
         
-        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+        String timeStamp = new SimpleDateFormat("MM/dd/yyyy, HH:mm:ss").format(new Date());
         try{
-        FileWriter writer = new FileWriter("log.txt");
-        writer.write(timeStamp + string +" Action was Done by user.");
-     
-        writer.close();
-}
-        catch(IOException e){
-            System.out.print("Error");
+        f = new File("log.txt");
+        FileWriter writer = new FileWriter(f, true);
+        pw = new PrintWriter(writer);
+        pw.println(timeStamp + "  ----> User " + event + ".");
+        }catch(IOException e){
+            System.out.println("ERROR");
+        }
+        if( pw !=null){
+            pw.close();
         }
     }
+ 
 }
