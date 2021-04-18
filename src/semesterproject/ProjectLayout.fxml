@@ -7,9 +7,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semesterproject.ProjectLayoutController">
+<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semesterproject.ProjectLayoutController">
     <stylesheets>
         <URL value="@projectlayout.css" />
     </stylesheets>
@@ -54,5 +55,6 @@
       <Separator layoutX="450.0" layoutY="154.0" orientation="VERTICAL" prefHeight="323.0" prefWidth="19.0" />
       <Separator layoutX="886.0" layoutY="154.0" orientation="VERTICAL" prefHeight="323.0" prefWidth="0.0" />
       <Separator layoutX="665.0" layoutY="154.0" orientation="VERTICAL" prefHeight="323.0" prefWidth="19.0" />
+      <HBox fx:id="clockBox" layoutX="349.0" layoutY="2.0" prefHeight="47.0" prefWidth="203.0" />
    </children>
 </AnchorPane>

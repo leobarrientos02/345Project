@@ -11,3 +11,47 @@ GAME DATA
 04/17/2021, 01:43:57  ----> User Game Session Initialized------------.
 04/17/2021, 01:43:57  ----> User asked for new deck.
 04/17/2021, 01:44:36  ----> User quitted the game------------.
+04/17/2021, 16:05:00  ----> User GAME SESSION INITIALIZE.
+04/17/2021, 16:05:00  ----> User asked for new deck.
+04/17/2021, 16:05:05  ----> User asked for new deck.
+04/17/2021, 16:05:05  ----> User generated a new game.
+04/17/2021, 16:05:15  ----> User QUIT THE GAME.
+04/17/2021, 16:05:41  ----> User GAME SESSION INITIALIZE.
+04/17/2021, 16:05:41  ----> User asked for new deck.
+04/17/2021, 16:06:32  ----> User GAME SESSION INITIALIZE.
+04/17/2021, 16:06:32  ----> User asked for new deck.
+04/17/2021, 16:06:48  ----> User asked for Solution.
+04/17/2021, 16:06:59  ----> User asked for new deck.
+04/17/2021, 16:06:59  ----> User generated a new game.
+04/17/2021, 16:07:00  ----> User asked for new deck.
+04/17/2021, 16:07:00  ----> User generated a new game.
+04/17/2021, 16:07:01  ----> User asked for new deck.
+04/17/2021, 16:07:01  ----> User generated a new game.
+04/17/2021, 16:07:02  ----> User asked for new deck.
+04/17/2021, 16:07:02  ----> User generated a new game.
+04/17/2021, 16:07:03  ----> User asked for new deck.
+04/17/2021, 16:07:03  ----> User generated a new game.
+04/17/2021, 16:07:03  ----> User asked for new deck.
+04/17/2021, 16:07:03  ----> User generated a new game.
+04/17/2021, 16:07:50  ----> User asked for new deck.
+04/17/2021, 16:07:50  ----> User generated a new game.
+04/17/2021, 16:07:50  ----> User asked for new deck.
+04/17/2021, 16:07:50  ----> User generated a new game.
+04/17/2021, 16:07:51  ----> User asked for new deck.
+04/17/2021, 16:07:51  ----> User generated a new game.
+04/17/2021, 16:07:51  ----> User asked for new deck.
+04/17/2021, 16:07:51  ----> User generated a new game.
+04/17/2021, 16:07:51  ----> User asked for new deck.
+04/17/2021, 16:07:51  ----> User generated a new game.
+04/17/2021, 16:07:55  ----> User QUIT THE GAME.
+04/17/2021, 16:16:01  ----> User GAME SESSION INITIALIZE.
+04/17/2021, 16:16:01  ----> User asked for new deck.
+04/17/2021, 16:16:03  ----> User asked for Solution.
+04/17/2021, 16:16:04  ----> User asked for new deck.
+04/17/2021, 16:16:04  ----> User generated a new game.
+04/17/2021, 16:16:06  ----> User asked for new deck.
+04/17/2021, 16:16:06  ----> User generated a new game.
+04/17/2021, 16:16:06  ----> User asked for new deck.
+04/17/2021, 16:16:06  ----> User generated a new game.
+04/17/2021, 22:39:21  ----> User GAME SESSION INITIALIZE.
+04/17/2021, 22:39:21  ----> User asked for new deck.
