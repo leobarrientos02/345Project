@@ -48,7 +48,7 @@ public class clockDigit {
         if (validClockDigits.contains(digit))
             this.digit = digit;
         else
-            throw new IllegalArgumentException("Valid face names are: "+
+            throw new IllegalArgumentException("Valid Clock Digits are: "+
                             validClockDigits);
     }
     public static List<String> getValidClockDigits(){
