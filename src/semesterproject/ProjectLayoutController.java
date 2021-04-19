@@ -434,11 +434,5 @@ public class ProjectLayoutController implements Initializable {
             pw.close();
         }
     }
-    public void clockBox(Group group){
-        
+
     }
-}
-
-
-
-
