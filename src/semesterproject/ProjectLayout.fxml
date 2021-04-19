@@ -7,10 +7,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semesterproject.ProjectLayoutController">
+<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="648.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semesterproject.ProjectLayoutController">
     <stylesheets>
         <URL value="@projectlayout.css" />
     </stylesheets>
@@ -55,6 +54,9 @@
       <Separator layoutX="450.0" layoutY="154.0" orientation="VERTICAL" prefHeight="323.0" prefWidth="19.0" />
       <Separator layoutX="886.0" layoutY="154.0" orientation="VERTICAL" prefHeight="323.0" prefWidth="0.0" />
       <Separator layoutX="665.0" layoutY="154.0" orientation="VERTICAL" prefHeight="323.0" prefWidth="19.0" />
-      <HBox fx:id="clockBox" layoutX="349.0" layoutY="2.0" prefHeight="47.0" prefWidth="203.0" />
+      <ImageView fx:id="minute1" fitHeight="80.0" fitWidth="60.0" layoutX="327.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="minute2" fitHeight="80.0" fitWidth="60.0" layoutX="387.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="second1" fitHeight="80.0" fitWidth="60.0" layoutX="450.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="second2" fitHeight="80.0" fitWidth="60.0" layoutX="510.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

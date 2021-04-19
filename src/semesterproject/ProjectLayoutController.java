@@ -34,9 +34,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-import javafx.application.Platform;
-import javafx.scene.control.Spinner;
-import javafx.scene.layout.HBox;
 
 
 /**
@@ -92,7 +89,13 @@ public class ProjectLayoutController implements Initializable {
     @FXML
     private Button quit;
     @FXML
-    private HBox clockBox;
+    private ImageView minute1;
+    @FXML
+    private ImageView minute2;
+    @FXML
+    private ImageView second2;
+    @FXML
+    private ImageView second1;
     
             
     @Override
@@ -433,6 +436,9 @@ public class ProjectLayoutController implements Initializable {
         if( pw !=null){
             pw.close();
         }
+    }
+    public void gameTimer(){
+        
     }
 
     }
