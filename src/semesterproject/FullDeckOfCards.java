@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javafx.scene.image.Image;
-import java.util.Random;
 
 public class FullDeckOfCards extends Card{
    private ArrayList<Card> deck;
