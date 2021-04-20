@@ -5,7 +5,6 @@
  */
 package semesterproject;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,17 +31,21 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Timer;
+import javafx.animation.AnimationTimer;
+import javax.swing.JFrame;
 
 /**
  * FXML Controller class for Card Game Project
  *
- * @author gorda
+ * @author gorda and Leonel
  */
 public class ProjectLayoutController implements Initializable {
 
     //FILE
     private File f;
     private PrintWriter pw= null;
+    
     // Images
     private InputStream stream;
     private InputStream stream2;
@@ -53,9 +56,11 @@ public class ProjectLayoutController implements Initializable {
     private Image image2;
     private Image image3;
     private Image image4;
+        
     
+    //File Name
     private String fileName;
-    private int value1, value2, value3, value4;
+    private int value1, value2, value3, value4, answer;
     
     private String userInput;
     
@@ -84,9 +89,13 @@ public class ProjectLayoutController implements Initializable {
     @FXML
     private Button quit;
     
+    private menu m;
+    
+    private Timer time = new Timer();
             
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         try {
             logAction("GAME SESSION INITIALIZE");
             ShowRandomCard();
@@ -94,7 +103,6 @@ public class ProjectLayoutController implements Initializable {
             Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
     
     public String Generate_RandomCard(){
         //Generate a random card from the deck
@@ -334,7 +342,6 @@ public class ProjectLayoutController implements Initializable {
         logAction("generated a new game");
     }
 
-
     @FXML
     private void checkAnswer(ActionEvent event) throws FileNotFoundException {
         
@@ -351,9 +358,11 @@ public class ProjectLayoutController implements Initializable {
                         
                 express = new Expression(value1, value2, value3, value4);
                 
-                answerDisplay.setText(String.valueOf(express.calc(userInput)));
+                answer = (int)express.calc(userInput);
                 
-                if( userInput.equals("24")){
+                if( answer == 24 ){
+                    
+                    answerDisplay.setText(String.valueOf(time.toString()));
                     logAction("WON THE GAME");
                     Alert alert = new Alert(AlertType.CONFIRMATION,"Do you want to play again?");
                     alert.setHeaderText("CORRECT");
@@ -423,5 +432,8 @@ public class ProjectLayoutController implements Initializable {
             pw.close();
         }
     }
- 
+    
+    public void timer(){
+        
+    }
 }

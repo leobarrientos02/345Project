@@ -12,8 +12,9 @@ import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+
 public class SemesterProject extends Application{
-    
+    private menu m;
     @Override
     public void start(Stage stage) throws Exception{
     Parent root = FXMLLoader.load(getClass().getResource("ProjectLayout.fxml"));
@@ -21,6 +22,9 @@ public class SemesterProject extends Application{
     stage.setScene(scene);
     stage.setTitle("Card Game");
     stage.show();
+    
+    m = new menu();
+    m.showMenu();
     }
     
     public static void main(String[] args) {

@@ -158,39 +158,53 @@ public class Expression extends BasicMath {
         return temp;
     }
     
-    public String Stripper(String userInput){
+    public int getParenthesis(char[] c){
+        int temp = 0;
+        //GET FIRST OPERATION
+        for(int i = 0;i < c.length;i++){
+            if(c[i] == '('){
+                temp = i;
+            }
+            if(c[i] == ')'){
+                temp = i;
+            }
+        }   
+        return temp;
+    }
+    
+    public char Stripper(String userInput){
         String s = userInput;
-        
+        char op= ' ';
         if( s.contains("+")){
-            s = s.replace("+"," ");
+            op = '+';
         }
         
         if( s.contains("-")){
-            s = s.replace("-", " ");
+            op = '-';
         }
         if( s.contains("/")){
-            s = s.replace("/", " ");
+            op = '/';
         }
-       
         if( s.contains("*")){
-            s = s.replace("*", " ");
+            
         }   
         if(s.contains("x")){
-            s = s.replace("x", " ");
+            op = '*';
         }
         if( s.contains("X")){
-            s = s.replace("X", " ");
+            op = '*';
         }
         
-        return s;
+        return op;
     }
             
     public float calc(String userInput){
         float solution=0;
-        char[] c = userInput.toCharArray();
+        char[] c = clean(userInput);
         Expression e = new Expression();
-        String s = Stripper(userInput);
-        
+        String s = userInput.trim();
+        //String s = g.replaceAll(" ", "0");
+        //char d = e.Stripper(userInput);
         //GET FIRST OPERATION
         e.setOp1(getOp(c));
         int index1 = getOpIndex(c);
@@ -214,13 +228,12 @@ public class Expression extends BasicMath {
         
         solution = e.applyOperator(e.getValue1(), e.getValue2(), e.getOp1());
         
-        // New String with solution
-        String temp3 = s.substring(index2, index3-1);
-        String s2 = String.valueOf(solution) + temp3;
+        
         // REMOVE FROM STRING
         //String temp3 = s.substring(index2+1, s.length());
                 
         // solution = Float.parseFloat(e.print(e.getValue1(), e.getValue2(),e.getOp1()));
         return solution;   
     }
+    
 }
