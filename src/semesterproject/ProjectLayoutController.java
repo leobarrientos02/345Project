@@ -34,6 +34,8 @@ import java.util.Date;
 import java.util.Timer;
 import javafx.animation.AnimationTimer;
 import javax.swing.JFrame;
+import java.util.TimerTask;
+
 
 /**
  * FXML Controller class for Card Game Project
@@ -66,6 +68,8 @@ public class ProjectLayoutController implements Initializable {
     
     private Expression express;
     
+    private long min, sec, hr, totalSeconds;
+    
     @FXML
     private AnchorPane anchorpane;
     @FXML
@@ -88,12 +92,21 @@ public class ProjectLayoutController implements Initializable {
     private Button verifyButton;
     @FXML
     private Button quit;
+    @FXML
+    private ImageView minute1;
+    @FXML
+    private ImageView minute2;
+    @FXML
+    private ImageView second2;
+    @FXML
+    private ImageView second1;
     
     private menu m;
     
     private Timer time = new Timer();
             
     @Override
+    // starts the game
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
@@ -176,7 +189,7 @@ public class ProjectLayoutController implements Initializable {
             default:
                 break;
         }
-        
+        //returns card image
         return fileName = value + "_of_" + cardType + ".png";
 
     }
@@ -407,7 +420,7 @@ public class ProjectLayoutController implements Initializable {
                 Alert alert = new Alert(AlertType.CONFIRMATION, "Are you sure you want to quit?");
                 alert.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
-                        logAction("QUIT THE GAME");
+                        logAction("Shutdown Application");
                         System.exit(0);
                     }
                 });
@@ -437,3 +450,10 @@ public class ProjectLayoutController implements Initializable {
         
     }
 }
+
+    public void gameTimer(){
+        
+    }
+
+    }
+
