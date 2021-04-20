@@ -55,3 +55,39 @@ GAME DATA
 04/17/2021, 16:16:06  ----> User generated a new game.
 04/17/2021, 22:39:21  ----> User GAME SESSION INITIALIZE.
 04/17/2021, 22:39:21  ----> User asked for new deck.
+04/20/2021, 08:01:55  ----> User GAME SESSION INITIALIZE.
+04/20/2021, 08:01:55  ----> User asked for new deck.
+04/20/2021, 08:01:59  ----> User asked for new deck.
+04/20/2021, 08:02:04  ----> User Shutdown Application.
+04/20/2021, 08:05:45  ----> User GAME SESSION INITIALIZE.
+04/20/2021, 08:05:45  ----> User asked for new deck.
+04/20/2021, 08:05:48  ----> User asked for new deck.
+04/20/2021, 08:05:52  ----> User Shutdown Application.
+04/20/2021, 09:51:44  ----> User GAME SESSION INITIALIZE.
+04/20/2021, 09:51:44  ----> User asked for new deck.
+04/20/2021, 09:51:50  ----> User asked for new deck.
+04/20/2021, 09:51:50  ----> User generated a new game.
+04/20/2021, 09:51:51  ----> User asked for new deck.
+04/20/2021, 09:51:51  ----> User generated a new game.
+04/20/2021, 09:51:51  ----> User asked for new deck.
+04/20/2021, 09:51:51  ----> User generated a new game.
+04/20/2021, 09:51:51  ----> User asked for new deck.
+04/20/2021, 09:51:51  ----> User generated a new game.
+04/20/2021, 09:51:51  ----> User asked for new deck.
+04/20/2021, 09:51:51  ----> User generated a new game.
+04/20/2021, 09:51:52  ----> User asked for new deck.
+04/20/2021, 09:51:52  ----> User generated a new game.
+04/20/2021, 09:52:02  ----> User Shutdown Application.
+04/20/2021, 10:37:08  ----> User GAME SESSION INITIALIZE.
+04/20/2021, 10:37:08  ----> User asked for new deck.
+04/20/2021, 10:37:11  ----> User asked for new deck.
+04/20/2021, 10:37:11  ----> User generated a new game.
+04/20/2021, 10:38:43  ----> User GAME SESSION INITIALIZE.
+04/20/2021, 10:38:43  ----> User asked for new deck.
+04/20/2021, 10:38:47  ----> User asked for new deck.
+04/20/2021, 10:38:47  ----> User generated a new game.
+04/20/2021, 10:38:48  ----> User asked for new deck.
+04/20/2021, 10:38:48  ----> User generated a new game.
+04/20/2021, 10:38:49  ----> User asked for new deck.
+04/20/2021, 10:38:49  ----> User generated a new game.
+04/20/2021, 10:38:51  ----> User Shutdown Application.

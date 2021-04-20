@@ -32,6 +32,8 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -46,16 +48,31 @@ public class ProjectLayoutController implements Initializable {
     //FILE
     private File f;
     private PrintWriter pw= null;
-    // Images
+    // Card InputStream variables
     private InputStream stream;
     private InputStream stream2;
     private InputStream stream3;
     private InputStream stream4;
-    
+    //Clock Image Variables
+    private InputStream stream5;
+    private InputStream stream6;
+    private InputStream stream7;
+    private InputStream stream8;
+    //Card Image variables
     private Image image1;
     private Image image2;
     private Image image3;
     private Image image4;
+    //clock Image Variabkes
+    private Image digit1;
+    private Image digit2;
+    private Image digit3;
+    private Image digit4;
+    //Digit Class Instance Variables
+    clockDigit right = new clockDigit(0);
+    clockDigit midRight = new clockDigit(0);
+    clockDigit midLeft = new clockDigit(0);
+    clockDigit left = new clockDigit(0);
     
     private String fileName;
     private int value1, value2, value3, value4;
@@ -63,9 +80,7 @@ public class ProjectLayoutController implements Initializable {
     private String userInput;
     
     private Expression express;
-    
-    private long min, sec, hr, totalSeconds;
-    
+
     @FXML
     private AnchorPane anchorpane;
     @FXML
@@ -104,6 +119,10 @@ public class ProjectLayoutController implements Initializable {
         try {
             logAction("GAME SESSION INITIALIZE");
             ShowRandomCard();
+            testClock(second1,right);
+             testClock(second2,midRight);
+              testClock(minute1,midLeft);
+               testClock(minute2,midLeft);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -345,6 +364,7 @@ public class ProjectLayoutController implements Initializable {
         checkAnswer.clear();
         ShowRandomCard();
         answerDisplay.clear();
+       
         logAction("generated a new game");
     }
 
@@ -437,8 +457,38 @@ public class ProjectLayoutController implements Initializable {
             pw.close();
         }
     }
-    public void gameTimer(){
+    
+       Timer playTime = new Timer();
+       TimerTask task = new TimerTask(){
+           @Override
+           public void run(){
+               int counter1 = 0;
+               int counter2 = 0;
+               int counter3 = 0;
+               int counter4 = 0;
+       clockDigit right = new clockDigit(0);
+       clockDigit midRight = new clockDigit(0);
+       clockDigit midLeft = new clockDigit(0);
+       clockDigit left = new clockDigit(0);
+       right.setNumber(counter1++);
+           }
+       };
+    public void runCLock(TimerTask task,clockDigit digit1,clockDigit digit2,clockDigit digit3,clockDigit digit4){
+       // digit1 = right.
+           
+    }
+    
+     
+    
+     public void testClock(ImageView image,clockDigit digit) throws FileNotFoundException{
         
-    }
+         stream5 = new FileInputStream("src/images/"+ right.getFileName());
+         Image image1 = new Image(stream5);
+         image.setImage(image1);
+         
+        }
 
+   
     }
+        
+    
