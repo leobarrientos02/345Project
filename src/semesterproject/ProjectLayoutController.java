@@ -531,16 +531,19 @@ public class ProjectLayoutController implements Initializable {
     public void timer(){
         
     }
-    
+    // setting up gameclock task
      Timer gameClock = new Timer();
     TimerTask increment = new TimerTask() {
         @Override
         public void run() {
+            // uses pre-initalized imageview variables
             runClock(second2,second1,minute2,minute1);
         }
 
         private void runClock(ImageView image1,ImageView image2,ImageView image3,ImageView image4) {
             while(true){
+                // each counter corresponds to each digit object, the point is to increase the right most digit by 1 till it gets to 10
+                //and then when it gets to 10 it changes the farthest left digit and resets to 0 until the clock maxes out at 9999
             int counter1 = 0;
             int counter2 = 0;
             int counter3 = 0;
