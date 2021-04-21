@@ -20,7 +20,7 @@ public class SemesterProject extends Application{
     Parent root = FXMLLoader.load(getClass().getResource("ProjectLayout.fxml"));
     Scene scene = new Scene(root);
     stage.setScene(scene);
-    stage.setTitle("Card Game");
+    stage.setTitle("Card Game 24");
     stage.show();
     
     m = new menu();

@@ -5,8 +5,6 @@
  */
 package semesterproject;
 
-import java.util.Arrays;
-
 
 /**
  *
@@ -23,7 +21,8 @@ public class Expression extends BasicMath {
     private char op2;
     private char op3;
     
-    private float[] d;
+    private char stack[];
+    private int top;
     
     public int getValue1(){
         return value1;
@@ -197,6 +196,7 @@ public class Expression extends BasicMath {
         
         return op;
     }
+    
             
     public float calc(String userInput){
         float solution=0;
@@ -226,7 +226,7 @@ public class Expression extends BasicMath {
         temp2 = s.substring(index1+1, s.length());
         e.setValue2(Integer.parseInt(temp2));
         
-        solution = e.applyOperator(e.getValue1(), e.getValue2(), e.getOp1());
+       // solution = e.applyOperator(e.getValue1(), e.getValue2());
         
         
         // REMOVE FROM STRING

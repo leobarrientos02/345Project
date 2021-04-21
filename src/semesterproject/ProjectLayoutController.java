@@ -30,11 +30,16 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Timer;
 import javafx.animation.AnimationTimer;
 import javax.swing.JFrame;
 import java.util.TimerTask;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 
 /**
@@ -62,11 +67,11 @@ public class ProjectLayoutController implements Initializable {
     
     //File Name
     private String fileName;
-    private int value1, value2, value3, value4, answer;
+    private int value1, value2, value3, value4;
+    private float answer;
     
     private String userInput;
     
-    private Expression express;
     
     private long min, sec, hr, totalSeconds;
     
@@ -356,7 +361,13 @@ public class ProjectLayoutController implements Initializable {
     }
 
     @FXML
-    private void checkAnswer(ActionEvent event) throws FileNotFoundException {
+    private void checkAnswer(ActionEvent event) throws FileNotFoundException, ScriptException {
+        
+        // game object
+        game g = new game();
+        
+        //Create a flag
+        boolean flag= true;
         
         userInput = checkAnswer.getText();
                 
@@ -364,48 +375,94 @@ public class ProjectLayoutController implements Initializable {
         
         switch ( verifyButton.getText()){
             
-            
             case "Verify":
        
                 userInput = checkAnswer.getText();
-                        
-                express = new Expression(value1, value2, value3, value4);
                 
-                answer = (int)express.calc(userInput);
+                // Clean userinput
+                String str_e = g.removeSpaces(userInput);
                 
-                if( answer == 24 ){
+                // Get the numbers in the input
+                List<String> digits = g.findDigit(str_e);
+                int size = digits.size();
+                                           
+                // if user enter wrong values, show alert
+                // To print the card value that the user can use dynamically
+                String Alert_Values = String.valueOf(value1) + ", " + String.valueOf(value2) + ", " + String.valueOf(value3) + ", or " + String.valueOf(value4);
+                
+                // Message for wrong values provided
+                String msg1= "Wrong value, you can only use the values " + Alert_Values;
+                
+                //Create alert
+                Alert alert3 = new Alert(AlertType.ERROR, msg1);
+                alert3.setHeaderText("Wrong numbers.");
+                alert3.setTitle("Error");
+            
+                /*
+                The next following lines of codes are going to be input validation,
+                to ensure that we have the correct form of an expression. I use a flag
+                set to true, if the validation fails then the flag would be set false.
+                This would be used to later do if ( flag= true) run the following
+                */
+                
+                // Test if input is empty
+                if ( userInput.isEmpty()){
+                    flag = false;
+                    Alert alert = new Alert(AlertType.ERROR, "Please enter an expression");
+                    alert.setHeaderText("No input.");
+                    alert.setTitle("Error");
+                    alert.showAndWait();                   
+                }
+                else if (size != 4){
+                    flag = false;
+                    Alert alert2 = new Alert(AlertType.ERROR, "Please enter an expression with 4 values");
+                    alert2.setHeaderText("Wrong amount of numbers.");
+                    alert2.setTitle("Error");
+                    alert2.showAndWait(); 
+                }
+                else if( digits.contains(String.valueOf(value1)) == false ||digits.contains(String.valueOf(value2)) == false ||
+                        digits.contains(String.valueOf(value3)) == false || digits.contains(String.valueOf(value4)) == false){
+                    flag = false;
+                    alert3.showAndWait();
+                }
+                else if(flag = true){
                     
-                    answerDisplay.setText(String.valueOf(time.toString()));
-                    logAction("WON THE GAME");
-                    Alert alert = new Alert(AlertType.CONFIRMATION,"Do you want to play again?");
-                    alert.setHeaderText("CORRECT");
-                    alert.showAndWait().ifPresent(response -> {
-                        if (response == ButtonType.OK) {
-                            try {
-                                checkAnswer.clear();
-                                ShowRandomCard();
-                                answerDisplay.clear();
-                                logAction("generated a new game");
-                            } catch (FileNotFoundException ex) {
-                                Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
+                    //answer = g.applyOperator(value1, value2, op);
+                    //answer = g.game(str_e);
+                    //answerDisplay.setText(String.valueOf(g.game(str_e)));
+                    ScriptEngineManager mgr = new ScriptEngineManager();
+                    ScriptEngine engine = mgr.getEngineByName("JavaScript");
+                    answerDisplay.setText((String.valueOf(engine.eval(str_e))));
+                    answer = Float.parseFloat(answerDisplay.getText());
+                    if( answer == 24 ){
+                    
+                        logAction("WON THE GAME");
+                        Alert alert4 = new Alert(AlertType.CONFIRMATION,"Do you want to play again?");
+                        alert4.setHeaderText("CORRECT");
+                        alert4.showAndWait().ifPresent(response -> {
+                            if (response == ButtonType.OK) {
+                                try {
+                                    checkAnswer.clear();
+                                    ShowRandomCard();
+                                    answerDisplay.clear();
+                                    logAction("generated a new game");
+                                } catch (FileNotFoundException ex) {
+                                    Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
                             }
-                        }
-                    });
-                }
-                else if( userInput.isEmpty()){
-                    logAction("No User input");
-                    Alert alert = new Alert(AlertType.ERROR, "Please Enter an Expression");
-                    alert.setHeaderText("NO ANSWER");
-                    alert.showAndWait();          
-                }
-                else{
-                    logAction("User input incorrect");
-                    Alert alert = new Alert(AlertType.ERROR, "WRONG, NOT EQUAL TO 24");
-                    alert.setHeaderText("WRONG");
-                    alert.showAndWait();  
+                        });
+                    }
+                    else if ( answer != 24){
+                        logAction("User input incorrect");
+                        Alert alert5 = new Alert(AlertType.ERROR, "WRONG, NOT EQUAL TO 24");
+                        alert5.setHeaderText("WRONG");
+                        alert5.showAndWait();  
+                    }
                 }
                 
             break;
+
+
         }
     }
 
@@ -449,11 +506,11 @@ public class ProjectLayoutController implements Initializable {
     public void timer(){
         
     }
-}
-
+    
     public void gameTimer(){
         
     }
 
-    }
+}
+
 
