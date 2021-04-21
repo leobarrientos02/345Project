@@ -546,27 +546,27 @@ public class ProjectLayoutController implements Initializable {
             int counter3 = 0;
             int counter4= 0;
             image1 =right.displayImage(counter1);
-            midRight.displayImage(counter2);
-            midLeft.displayImage(counter3);
-            left.displayImage(counter4);
+            image2 =midRight.displayImage(counter2);
+            image3 =midLeft.displayImage(counter3);
+            image4 =left.displayImage(counter4);
             counter1++;
             if(counter1 ==10){
                 counter2++;
                 counter1 = 0;
-                right.displayImage(counter1);
-                midRight.displayImage(counter2);
-                midLeft.displayImage(counter3);
-                left.displayImage(counter4);
+                image1 =right.displayImage(counter1);
+                image2 = midRight.displayImage(counter2);
+                image3 =midLeft.displayImage(counter3);
+                image4 = left.displayImage(counter4);
                 counter1++;         
             }
             if(counter2 == 10){
                 counter3++;
                 counter1 = 0;
                 counter2 = 0;
-                right.displayImage(counter1);
-                midRight.displayImage(counter2);
-                midLeft.displayImage(counter3);
-                left.displayImage(counter4);
+                image1= right.displayImage(counter1);
+                image2=midRight.displayImage(counter2);
+                image3 =midLeft.displayImage(counter3);
+                image4=left.displayImage(counter4);
                 counter1++;
             }
             if(counter3 == 10){
@@ -574,16 +574,16 @@ public class ProjectLayoutController implements Initializable {
                 counter1 = 0;
                 counter2 = 0;
                 counter3 = 0;
-                right.displayImage(counter1);
-                midLeft.displayImage(counter2);
-                midRight.displayImage(counter3);
-                left.displayImage(counter4);
+                image1=right.displayImage(counter1);
+                image2=midLeft.displayImage(counter2);
+                image3=midRight.displayImage(counter3);
+                image4=left.displayImage(counter4);
                 counter2++;
             if(counter4 == 10){
-                right.displayImage(9);
-                midRight.displayImage(9);
-                midLeft.displayImage(9);
-                left.displayImage(9);
+                image1=right.displayImage(9);
+                image2=midRight.displayImage(9);
+                image3=midLeft.displayImage(9);
+                image4=left.displayImage(9);
                 break;}}
             }
         }
