@@ -5,60 +5,54 @@
  */
 package semesterproject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import javafx.scene.image.Image;
 import java.util.Arrays;
 import java.util.List;
+import javafx.scene.image.ImageView;
 /**
  *
  * @author gorda
  */
 public class clockDigit {
-    private String digit, fileName;
-    private Image digiPic;
+    private String fileName;
+    protected File file;
     private int number;
+    protected Image digital;
     
-    public clockDigit(){
-        setDigit(digit);
-        setImage(digiPic);
-        String fileName =   "clock"+number+".png";
+
+    
+   
+  
+
+    public clockDigit(int number){
+        setNumber(number);
+        setFileName(number);
+        ;
+        
     }
-    public void setDigit(String digit){
-        this.digit = digit;
-    }
-    public void setImage(Image image){
-        this.digiPic = image;
-    }
-    public void setValue(int number){
+    protected void setNumber(int number){
         this.number = number;
     }
-    public String getDigit(){
-        return this.digit;
+    protected void setFileName(int number){
+        this.fileName = "clock"+number+".png";
     }
-    public Image getImage(){
-        return this.digiPic;
-    }
-    public int getNumber(){
-        return this.number = number;
-       
-    }
-    public void setValidClockDigits(String digits) {
-        List<String> validClockDigits = getValidClockDigits();
-       
 
-        if (validClockDigits.contains(digit))
-            this.digit = digit;
-        else
-            throw new IllegalArgumentException("Valid Clock Digits are: "+
-                            validClockDigits);
+    protected int getNumber(){
+        return this.number;
     }
-    public static List<String> getValidClockDigits(){
-        
-    return Arrays.asList("0","1","2","3","4","5","6","7","8","9");
+    protected String getFileName(){
+        return this.fileName = fileName;
     }
+
     
     public String toString()
     {
-        return String.format("%s is picture %s, value is %s", digit,digiPic,number);
+        return String.format("%s is picture %s", number,fileName);
     }
+
+  
 }
 
