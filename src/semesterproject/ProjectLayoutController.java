@@ -536,10 +536,10 @@ public class ProjectLayoutController implements Initializable {
     TimerTask increment = new TimerTask() {
         @Override
         public void run() {
-            runClock(right,midRight,midLeft,left);
+            runClock(second2,second1,minute2,minute1);
         }
 
-        private void runClock(clockDigit right, clockDigit midRight, clockDigit midLeft, clockDigit left) {
+        private void runClock(ImageView image1,ImageView image2,ImageView image3,ImageView image4) {
             while(true){
             int counter1 = 0;
             int counter2 = 0;
