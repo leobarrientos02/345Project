@@ -545,7 +545,7 @@ public class ProjectLayoutController implements Initializable {
             int counter2 = 0;
             int counter3 = 0;
             int counter4= 0;
-            right.displayImage(counter1);
+            image1 =right.displayImage(counter1);
             midRight.displayImage(counter2);
             midLeft.displayImage(counter3);
             left.displayImage(counter4);

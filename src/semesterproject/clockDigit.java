@@ -49,10 +49,11 @@ public class clockDigit extends ImageInterface {
     protected void setFileName(int number){
         this.fileName = "src/images/clock"+number+".png";
     }
-    protected void displayImage(int number){
+    protected ImageView displayImage(int number){
         setFileName(number);
         this.image= new Image(fileName);
         this.imageView = new ImageView(image);
+        return this.imageView;
     }
     
     @Override
