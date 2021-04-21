@@ -6,12 +6,7 @@
 package semesterproject;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 
 /**
  *
@@ -21,37 +16,72 @@ public class game extends BasicMath {
    
     private String op1, op2, op3;
     private float num1, num2, num3, num4;
-    private int c1,c2,c3,c4;
+    
+    public float getNum1(){
+        return num1;
+    }
+    public void setNum1(float Num){
+        num1 = Num;
+    }
+    
+    public float getNum2(){
+        return num2;
+    }
+    public void setNum2(float Num){
+        num2 = Num;
+    } 
+    
+    public float getNum3(){
+        return num3;
+    }
+    public void setNum3(float Num){
+        num3 = Num;
+    }    
+
+    public void setNum4(float Num){
+        num4 = Num;
+    }    
+    public float getNum4(){
+        return num4;
+    }
+ 
+    public String getOp1(){
+        return op1;
+    }
+    
+    public String getOp2(){
+        return op2;
+    }
+    
+    public String getOp3(){
+        return op3;
+    }
+    
+    public void setOp1(String c){
+        op1 = c;
+    }
+    
+    public void setOp2(String c){
+        op2 = c;
+    }
+    
+    public void setOp3(String c){
+        op3 = c;
+    }    
     
     public String removeSpaces(String str){
         String str2 = str;
         return str2.replaceAll(" ", "");
     }
     
-    public int operand(String str){
-        int temp = 0;
-        if(str.contains("+")){
-            temp =1;
+    
+    public boolean isNumber(String str){
+        for(int i=0;i<str.length();i++){
+            if(Character.isDigit(str.charAt(i)) == false){
+                return false;
+            }
         }
-        else if(str.contains("-")){
-            temp =2;
-        }
-        else if(str.contains("*")){
-            temp =3;
-        }
-        else if(str.contains("/")){
-            temp =4;
-        }
-        else if(str.contains("(")){
-            temp =5;
-        }
-        else if(str.contains(")")){
-            temp =6;
-        }
-        else{
-            temp=0;
-        }
-        return temp;
+        return true;
     }
     
     public List<String> findDigit(String str){

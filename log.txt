@@ -305,3 +305,171 @@ GAME DATA
 04/20/2021, 23:14:02  ----> User WON THE GAME.
 04/20/2021, 23:14:05  ----> User asked for new deck.
 04/20/2021, 23:14:05  ----> User generated a new game.
+04/21/2021, 03:50:08  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 03:50:08  ----> User asked for new deck.
+04/21/2021, 03:50:24  ----> User asked for Solution.
+04/21/2021, 03:55:38  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 03:55:38  ----> User asked for new deck.
+04/21/2021, 03:55:41  ----> User asked for Solution.
+04/21/2021, 03:57:27  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 03:57:27  ----> User asked for new deck.
+04/21/2021, 03:57:30  ----> User asked for Solution.
+04/21/2021, 03:57:41  ----> User WON THE GAME.
+04/21/2021, 03:57:43  ----> User asked for new deck.
+04/21/2021, 03:57:43  ----> User generated a new game.
+04/21/2021, 03:57:47  ----> User asked for Solution.
+04/21/2021, 03:57:59  ----> User WON THE GAME.
+04/21/2021, 03:58:05  ----> User asked for new deck.
+04/21/2021, 03:58:05  ----> User generated a new game.
+04/21/2021, 13:46:22  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 13:46:22  ----> User asked for new deck.
+04/21/2021, 13:46:29  ----> User Shutdown Application.
+04/21/2021, 14:13:13  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:13:13  ----> User asked for new deck.
+04/21/2021, 14:14:08  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:14:08  ----> User asked for new deck.
+04/21/2021, 14:14:12  ----> User asked for new deck.
+04/21/2021, 14:14:12  ----> User generated a new game.
+04/21/2021, 14:14:13  ----> User asked for new deck.
+04/21/2021, 14:14:13  ----> User generated a new game.
+04/21/2021, 14:22:48  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:22:48  ----> User asked for new deck.
+04/21/2021, 14:25:02  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:25:02  ----> User asked for new deck.
+04/21/2021, 14:33:28  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:33:28  ----> User asked for new deck.
+04/21/2021, 14:33:32  ----> User asked for new deck.
+04/21/2021, 14:33:32  ----> User generated a new game.
+04/21/2021, 14:33:32  ----> User asked for new deck.
+04/21/2021, 14:33:32  ----> User generated a new game.
+04/21/2021, 14:33:33  ----> User asked for Solution.
+04/21/2021, 14:33:34  ----> User asked for Solution.
+04/21/2021, 14:33:35  ----> User asked for Solution.
+04/21/2021, 14:33:35  ----> User asked for Solution.
+04/21/2021, 14:33:35  ----> User asked for Solution.
+04/21/2021, 14:33:35  ----> User asked for Solution.
+04/21/2021, 14:33:35  ----> User asked for Solution.
+04/21/2021, 14:33:38  ----> User asked for Solution.
+04/21/2021, 14:35:24  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:35:24  ----> User asked for new deck.
+04/21/2021, 14:35:29  ----> User asked for Solution.
+04/21/2021, 14:35:30  ----> User asked for Solution.
+04/21/2021, 14:35:31  ----> User asked for Solution.
+04/21/2021, 14:35:31  ----> User asked for Solution.
+04/21/2021, 14:35:31  ----> User asked for Solution.
+04/21/2021, 14:35:36  ----> User asked for new deck.
+04/21/2021, 14:35:36  ----> User generated a new game.
+04/21/2021, 14:35:37  ----> User asked for new deck.
+04/21/2021, 14:35:37  ----> User generated a new game.
+04/21/2021, 14:37:16  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:37:16  ----> User asked for new deck.
+04/21/2021, 14:37:21  ----> User asked for Solution.
+04/21/2021, 14:37:22  ----> User asked for Solution.
+04/21/2021, 14:37:23  ----> User asked for new deck.
+04/21/2021, 14:37:23  ----> User generated a new game.
+04/21/2021, 14:37:25  ----> User asked for Solution.
+04/21/2021, 14:37:25  ----> User asked for Solution.
+04/21/2021, 14:37:27  ----> User asked for Solution.
+04/21/2021, 14:37:28  ----> User asked for Solution.
+04/21/2021, 14:37:28  ----> User asked for Solution.
+04/21/2021, 14:37:28  ----> User asked for Solution.
+04/21/2021, 14:37:28  ----> User asked for Solution.
+04/21/2021, 14:37:28  ----> User asked for Solution.
+04/21/2021, 14:42:08  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:42:08  ----> User asked for new deck.
+04/21/2021, 14:42:20  ----> User asked for new deck.
+04/21/2021, 14:42:20  ----> User generated a new game.
+04/21/2021, 14:43:05  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:43:05  ----> User asked for new deck.
+04/21/2021, 14:43:23  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:43:23  ----> User asked for new deck.
+04/21/2021, 14:45:08  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:45:08  ----> User asked for new deck.
+04/21/2021, 14:46:19  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:46:19  ----> User asked for new deck.
+04/21/2021, 14:53:14  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:53:14  ----> User asked for new deck.
+04/21/2021, 14:56:04  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:56:04  ----> User asked for new deck.
+04/21/2021, 14:56:46  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:56:46  ----> User asked for new deck.
+04/21/2021, 14:57:12  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 14:57:12  ----> User asked for new deck.
+04/21/2021, 15:01:59  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:01:59  ----> User asked for new deck.
+04/21/2021, 15:03:43  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:03:43  ----> User asked for new deck.
+04/21/2021, 15:05:05  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:05:05  ----> User asked for new deck.
+04/21/2021, 15:05:46  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:05:46  ----> User asked for new deck.
+04/21/2021, 15:29:43  ----> User Shutdown Application.
+04/21/2021, 15:33:57  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:33:57  ----> User asked for new deck.
+04/21/2021, 15:40:33  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:40:33  ----> User asked for new deck.
+04/21/2021, 15:41:33  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:41:33  ----> User asked for new deck.
+04/21/2021, 15:43:40  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:43:40  ----> User asked for new deck.
+04/21/2021, 15:55:42  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:55:42  ----> User asked for new deck.
+04/21/2021, 15:57:03  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:57:03  ----> User asked for new deck.
+04/21/2021, 15:57:49  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:57:49  ----> User asked for new deck.
+04/21/2021, 15:59:10  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 15:59:10  ----> User asked for new deck.
+04/21/2021, 15:59:18  ----> User Shutdown Application.
+04/21/2021, 16:02:18  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:02:18  ----> User asked for new deck.
+04/21/2021, 16:05:17  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:05:17  ----> User asked for new deck.
+04/21/2021, 16:06:30  ----> User Shutdown Application.
+04/21/2021, 16:13:50  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:13:50  ----> User asked for new deck.
+04/21/2021, 16:14:32  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:14:32  ----> User asked for new deck.
+04/21/2021, 16:24:30  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:24:30  ----> User asked for new deck.
+04/21/2021, 16:32:16  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:32:16  ----> User asked for new deck.
+04/21/2021, 16:32:27  ----> User asked for Solution.
+04/21/2021, 16:32:40  ----> User WON THE GAME.
+04/21/2021, 16:32:44  ----> User asked for new deck.
+04/21/2021, 16:32:44  ----> User generated a new game.
+04/21/2021, 16:34:11  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:34:11  ----> User asked for new deck.
+04/21/2021, 16:34:19  ----> User asked for Solution.
+04/21/2021, 16:34:48  ----> User WON THE GAME.
+04/21/2021, 16:34:51  ----> User asked for new deck.
+04/21/2021, 16:34:51  ----> User generated a new game.
+04/21/2021, 16:37:33  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:37:33  ----> User asked for new deck.
+04/21/2021, 16:37:46  ----> User Shutdown Application.
+04/21/2021, 16:38:57  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:38:57  ----> User asked for new deck.
+04/21/2021, 16:39:24  ----> User Shutdown Application.
+04/21/2021, 16:39:55  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:39:55  ----> User asked for new deck.
+04/21/2021, 16:40:04  ----> User Shutdown Application.
+04/21/2021, 16:40:55  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:40:55  ----> User asked for new deck.
+04/21/2021, 16:42:06  ----> User asked for new deck.
+04/21/2021, 16:42:06  ----> User generated a new game.
+04/21/2021, 16:42:10  ----> User asked for Solution.
+04/21/2021, 16:42:25  ----> User WON THE GAME.
+04/21/2021, 16:42:31  ----> User asked for new deck.
+04/21/2021, 16:42:31  ----> User generated a new game.
+04/21/2021, 16:43:52  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:43:52  ----> User asked for new deck.
+04/21/2021, 16:44:36  ----> User GAME SESSION INITIALIZE.
+04/21/2021, 16:44:36  ----> User asked for new deck.
+04/21/2021, 16:44:47  ----> User asked for Solution.
+04/21/2021, 16:45:00  ----> User WON THE GAME.
+04/21/2021, 16:45:10  ----> User asked for new deck.
+04/21/2021, 16:45:10  ----> User generated a new game.
+04/21/2021, 16:45:15  ----> User asked for new deck.
+04/21/2021, 16:45:15  ----> User generated a new game.
+04/21/2021, 16:45:17  ----> User asked for new deck.
+04/21/2021, 16:45:17  ----> User generated a new game.
