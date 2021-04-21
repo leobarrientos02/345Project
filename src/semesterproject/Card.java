@@ -15,9 +15,9 @@ import java.util.List;
  * face, and value
  * @author Adam Gordon
  */
-public class Card {
+public class Card extends ImageInterface{
     private String cardFace, suit;
-    private Image image;
+    protected Image image;
     protected Integer value;
  // constructor
     public Card() {
