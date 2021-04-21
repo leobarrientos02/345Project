@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="648.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semesterproject.ProjectLayoutController">
+<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="648.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semesterproject.ProjectLayoutController">
     <stylesheets>
         <URL value="@projectlayout.css" />
     </stylesheets>
@@ -33,7 +33,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <TextField fx:id="checkAnswer" alignment="CENTER" layoutX="280.0" layoutY="507.0" onAction="#checkAnswer" prefHeight="47.0" prefWidth="367.0">
+      <TextField fx:id="checkAnswer" alignment="CENTER" layoutX="280.0" layoutY="507.0" onAction="#checkAnswer" prefHeight="47.0" prefWidth="367.0" promptText="Enter an expression">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font></TextField>

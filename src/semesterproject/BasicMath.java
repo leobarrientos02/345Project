@@ -55,7 +55,7 @@ public class BasicMath {
         switch (c) {
             case '+':
                 return a + b;
-            case '-':
+            case  '-':
                 return b - a;
             case '*':
                 return a * b;
