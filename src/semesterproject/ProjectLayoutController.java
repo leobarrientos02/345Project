@@ -30,7 +30,6 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 import java.util.List;
@@ -39,8 +38,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import java.util.Timer;
-import javafx.animation.AnimationTimer;
-import javax.swing.JFrame;
 import java.util.TimerTask;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -119,23 +116,39 @@ public class ProjectLayoutController implements Initializable {
     private Button verifyButton;
     @FXML
     private Button quit;
+     
+    // TIME 
     @FXML
-    private ImageView minute1;
-    @FXML
-    private ImageView minute2;
-    @FXML
-    private ImageView second2;
-    @FXML
-    private ImageView second1;
+    private TextField timer111;
+    private int seconds=0, minutes=0, hours=0;
+    private Timer timer1 = new Timer();
+
     
-    private menu m;
-    
-    private Timer time = new Timer();
+    class printTime extends TimerTask{
+
+        @Override
+        public void run() {
             
+            seconds = seconds +1;
+            
+            if(seconds == 59){
+                seconds=0;
+                minutes = minutes + 1;
+            }
+            else if( minutes == 59){
+                seconds=0;
+                minutes = 0;
+                hours = hours + 1;
+            }
+            timer111.setText(String.valueOf(hours) + "hrs   " + String.valueOf(minutes) + "min    " + String.valueOf(seconds)+ "s  " );
+        }         
+    }
+    
+    
     @Override
     // starts the game
     public void initialize(URL url, ResourceBundle rb) {
-
+                
         try {
             logAction("GAME SESSION INITIALIZE");
             ShowRandomCard();
@@ -145,6 +158,12 @@ public class ProjectLayoutController implements Initializable {
         }
     }
     
+    // This is a function we use to build the filename of all the images of the cards.
+    // Each filename were unique by the card value and the card type. This function
+    // first generates a random number between 1-4 in which each number was associated to a card type.
+    // Next we generate a number between 1-13 in which each number was associated to a card value.
+    // Both random output are used in a string that would generate a complete filename
+    // that may be found in our images folder.
     public String Generate_RandomCard(){
         //Generate a random card from the deck
        
@@ -222,6 +241,11 @@ public class ProjectLayoutController implements Initializable {
 
     }
     
+    // This is used to find out the value of the card image presented on
+    // the screen. The logic behind this function is that we get the first
+    // character from the filename which all are different in which we may
+    // use to distinguish the difference between all cards. ** If the first
+    // char in the filename is 'a' ( ace ) we set temp to 1;
     private int getCardValue(String fileName){
         
         int temp=0;
@@ -286,6 +310,13 @@ public class ProjectLayoutController implements Initializable {
         
         value1 = getCardValue(fileName);
         
+        
+        /* The first card value can be any card from the image folder
+        // now the next card are going to require us to ensure the same
+        // cards are not repeated on screen. Each time we generate a new 
+        // random card we test if the file is equal to the previous cards
+        // file name, if so regenerate another card else stream the file
+        // show the image to the screen.*/
         String file2 = Generate_RandomCard();
         if(file.equals(file2)){
             file2 = Generate_RandomCard();
@@ -362,6 +393,10 @@ public class ProjectLayoutController implements Initializable {
                 String op = " " + String.valueOf(s1.getValue1())+ " " + String.valueOf(s1.getValue2())+ " " +
                         String.valueOf(s1.getValue3()) + " " + String.valueOf(s1.getValue4());
                 String solution="";
+                
+                // Reads in all the solutions from solution.txt
+                // which holds all the solutions and also all
+                // no possible solutions.
                 Scanner scanner = new Scanner(new FileInputStream("src/semesterproject/solution.txt"));
                 while(scanner.hasNextLine()){
                     String s = scanner.nextLine();
@@ -421,7 +456,7 @@ public class ProjectLayoutController implements Initializable {
                 Alert alert3 = new Alert(AlertType.ERROR, msg1);
                 alert3.setHeaderText("Wrong numbers.");
                 alert3.setTitle("Error");
-            
+                
                 /*
                 The next following lines of codes are going to be input validation,
                 to ensure that we have the correct form of an expression. I use a flag
@@ -437,6 +472,9 @@ public class ProjectLayoutController implements Initializable {
                     alert.setTitle("Error");
                     alert.showAndWait();                   
                 }
+                // Using the size variable which hold the size of the digits List
+                // which grabs the four numbers from the user input. If size is not
+                // equal to 4, there are more or less than 4 numbers in the input.
                 else if (size != 4){
                     flag = false;
                     Alert alert2 = new Alert(AlertType.ERROR, "Please enter an expression with 4 values");
@@ -444,31 +482,43 @@ public class ProjectLayoutController implements Initializable {
                     alert2.setTitle("Error");
                     alert2.showAndWait(); 
                 }
+                // This validation is used to ensure that only the values provided on the
+                // screen are used in the input.
                 else if( digits.contains(String.valueOf(value1)) == false ||digits.contains(String.valueOf(value2)) == false ||
                         digits.contains(String.valueOf(value3)) == false || digits.contains(String.valueOf(value4)) == false){
                     flag = false;
                     alert3.showAndWait();
                 }
+                // If everything passes through the validation then "flag" remains true
                 else if(flag = true){
                     
-                    //answer = g.applyOperator(value1, value2, op);
-                    //answer = g.game(str_e);
-                    //answerDisplay.setText(String.valueOf(g.game(str_e)));
+                    // Using a ScriptEnginer to evaluate the userinput
+                    // using JavaScript.
                     ScriptEngineManager mgr = new ScriptEngineManager();
                     ScriptEngine engine = mgr.getEngineByName("JavaScript");
+                    
                     answerDisplay.setText((String.valueOf(engine.eval(str_e))));
+                    
+                    // Answer grabs the value from the answerDisplay 
+                    //which would show the user the answer to their expression. 
                     answer = Float.parseFloat(answerDisplay.getText());
                     if( answer == 24 ){
                     
                         logAction("WON THE GAME");
+                        timer1.cancel();
+                        String totalT = timer111.getText();
+                        // Send an alert box to tell the user they won
                         Alert alert4 = new Alert(AlertType.CONFIRMATION,"Do you want to play again?");
-                        alert4.setHeaderText("CORRECT");
+                        alert4.setHeaderText("CORRECT! It took you " + totalT);
                         alert4.showAndWait().ifPresent(response -> {
                             if (response == ButtonType.OK) {
                                 try {
+                                    // Resets the game
                                     checkAnswer.clear();
                                     ShowRandomCard();
                                     answerDisplay.clear();
+                                    timer1.cancel();
+                                    timer111.clear();
                                     logAction("generated a new game");
                                 } catch (FileNotFoundException ex) {
                                     Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
@@ -478,6 +528,7 @@ public class ProjectLayoutController implements Initializable {
                     }
                     else if ( answer != 24){
                         logAction("User input incorrect");
+                        // Tells the user that they are wrong
                         Alert alert5 = new Alert(AlertType.ERROR, "WRONG, NOT EQUAL TO 24");
                         alert5.setHeaderText("WRONG");
                         alert5.showAndWait();  
@@ -528,9 +579,39 @@ public class ProjectLayoutController implements Initializable {
     }
     
 
+    @FXML
+    void startTime(ActionEvent event) {
+        timer1.schedule( new printTime(), 0, 1000);
+    }
+
+
     public void timer(){
         
     }
+
+    
+    public void gameTimer(){
+        
+
+       Timer playTime = new Timer();
+       TimerTask task = new TimerTask(){
+           @Override
+           public void run(){
+               int counter1 = 0;
+               int counter2 = 0;
+               int counter3 = 0;
+               int counter4 = 0;
+       clockDigit right = new clockDigit(0);
+       clockDigit midRight = new clockDigit(0);
+       clockDigit midLeft = new clockDigit(0);
+       clockDigit left = new clockDigit(0);
+       right.setNumber(counter1++);
+           }
+       };
+    public void runCLock(TimerTask task,clockDigit digit1,clockDigit digit2,clockDigit digit3,clockDigit digit4){
+       // digit1 = right.
+           
+
     // setting up gameclock task
      Timer gameClock = new Timer();
     TimerTask increment = new TimerTask() {
@@ -539,6 +620,7 @@ public class ProjectLayoutController implements Initializable {
             // uses pre-initalized imageview variables
             runClock(second2,second1,minute2,minute1);
         }
+
 
         private void runClock(ImageView image1,ImageView image2,ImageView image3,ImageView image4) {
             while(true){
@@ -591,6 +673,7 @@ public class ProjectLayoutController implements Initializable {
             }
         }
     };
+
 
 }
 
