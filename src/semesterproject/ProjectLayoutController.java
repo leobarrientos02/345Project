@@ -74,11 +74,7 @@ public class ProjectLayoutController implements Initializable {
     private Image image2;
     private Image image3;
     private Image image4;
-    //Digit Class Instance Variables
-    clockDigit right = new clockDigit(0);
-    clockDigit midRight = new clockDigit(0);
-    clockDigit midLeft = new clockDigit(0);
-    clockDigit left = new clockDigit(0);
+
 
     
     //File Name
@@ -122,6 +118,16 @@ public class ProjectLayoutController implements Initializable {
     private TextField timer111;
     private int seconds=0, minutes=0, hours=0;
     private Timer timer1 = new Timer();
+    @FXML
+    private ImageView minute1;
+    @FXML
+    private ImageView minute2;
+    @FXML
+    private ImageView second1;
+    @FXML
+    private ImageView second2;
+    @FXML
+    private Button timeBtn;
 
     
     class printTime extends TimerTask{
@@ -590,91 +596,7 @@ public class ProjectLayoutController implements Initializable {
     }
 
     
-    public void gameTimer(){
-        
-
-       Timer playTime = new Timer();
-       TimerTask task = new TimerTask(){
-           @Override
-           public void run(){
-               int counter1 = 0;
-               int counter2 = 0;
-               int counter3 = 0;
-               int counter4 = 0;
-       clockDigit right = new clockDigit(0);
-       clockDigit midRight = new clockDigit(0);
-       clockDigit midLeft = new clockDigit(0);
-       clockDigit left = new clockDigit(0);
-       right.setNumber(counter1++);
-           }
-       };
-    public void runCLock(TimerTask task,clockDigit digit1,clockDigit digit2,clockDigit digit3,clockDigit digit4){
-       // digit1 = right.
-           
-
-    // setting up gameclock task
-     Timer gameClock = new Timer();
-    TimerTask increment = new TimerTask() {
-        @Override
-        public void run() {
-            // uses pre-initalized imageview variables
-            runClock(second2,second1,minute2,minute1);
-        }
-
-
-        private void runClock(ImageView image1,ImageView image2,ImageView image3,ImageView image4) {
-            while(true){
-                // each counter corresponds to each digit object, the point is to increase the right most digit by 1 till it gets to 10
-                //and then when it gets to 10 it changes the farthest left digit and resets to 0 until the clock maxes out at 9999
-            int counter1 = 0;
-            int counter2 = 0;
-            int counter3 = 0;
-            int counter4= 0;
-            image1 =right.displayImage(counter1);
-            image2 =midRight.displayImage(counter2);
-            image3 =midLeft.displayImage(counter3);
-            image4 =left.displayImage(counter4);
-            counter1++;
-            if(counter1 ==10){
-                counter2++;
-                counter1 = 0;
-                image1 =right.displayImage(counter1);
-                image2 = midRight.displayImage(counter2);
-                image3 =midLeft.displayImage(counter3);
-                image4 = left.displayImage(counter4);
-                counter1++;         
-            }
-            if(counter2 == 10){
-                counter3++;
-                counter1 = 0;
-                counter2 = 0;
-                image1= right.displayImage(counter1);
-                image2=midRight.displayImage(counter2);
-                image3 =midLeft.displayImage(counter3);
-                image4=left.displayImage(counter4);
-                counter1++;
-            }
-            if(counter3 == 10){
-                counter4++;
-                counter1 = 0;
-                counter2 = 0;
-                counter3 = 0;
-                image1=right.displayImage(counter1);
-                image2=midLeft.displayImage(counter2);
-                image3=midRight.displayImage(counter3);
-                image4=left.displayImage(counter4);
-                counter2++;
-            if(counter4 == 10){
-                image1=right.displayImage(9);
-                image2=midRight.displayImage(9);
-                image3=midLeft.displayImage(9);
-                image4=left.displayImage(9);
-                break;}}
-            }
-        }
-    };
-
-
+   
 }
 
    
