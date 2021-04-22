@@ -74,12 +74,6 @@ public class ProjectLayoutController implements Initializable {
     private Image image2;
     private Image image3;
     private Image image4;
-
-    //clock Image Variabkes
-    private Image digit1;
-    private Image digit2;
-    private Image digit3;
-    private Image digit4;
     //Digit Class Instance Variables
     clockDigit right = new clockDigit(0);
     clockDigit midRight = new clockDigit(0);
@@ -158,10 +152,7 @@ public class ProjectLayoutController implements Initializable {
         try {
             logAction("GAME SESSION INITIALIZE");
             ShowRandomCard();
-            testClock(second1,right);
-             testClock(second2,midRight);
-              testClock(minute1,midLeft);
-               testClock(minute2,midLeft);
+       
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -597,6 +588,7 @@ public class ProjectLayoutController implements Initializable {
     public void timer(){
         
     }
+
     
     public void gameTimer(){
         
@@ -620,22 +612,72 @@ public class ProjectLayoutController implements Initializable {
        // digit1 = right.
            
 
-    }
-    
-     
-    
-     public void testClock(ImageView image,clockDigit digit) throws FileNotFoundException{
-        
-         stream5 = new FileInputStream("src/images/"+ right.getFileName());
-         Image image1 = new Image(stream5);
-         image.setImage(image1);
-         
+    // setting up gameclock task
+     Timer gameClock = new Timer();
+    TimerTask increment = new TimerTask() {
+        @Override
+        public void run() {
+            // uses pre-initalized imageview variables
+            runClock(second2,second1,minute2,minute1);
         }
+
+
+        private void runClock(ImageView image1,ImageView image2,ImageView image3,ImageView image4) {
+            while(true){
+                // each counter corresponds to each digit object, the point is to increase the right most digit by 1 till it gets to 10
+                //and then when it gets to 10 it changes the farthest left digit and resets to 0 until the clock maxes out at 9999
+            int counter1 = 0;
+            int counter2 = 0;
+            int counter3 = 0;
+            int counter4= 0;
+            image1 =right.displayImage(counter1);
+            image2 =midRight.displayImage(counter2);
+            image3 =midLeft.displayImage(counter3);
+            image4 =left.displayImage(counter4);
+            counter1++;
+            if(counter1 ==10){
+                counter2++;
+                counter1 = 0;
+                image1 =right.displayImage(counter1);
+                image2 = midRight.displayImage(counter2);
+                image3 =midLeft.displayImage(counter3);
+                image4 = left.displayImage(counter4);
+                counter1++;         
+            }
+            if(counter2 == 10){
+                counter3++;
+                counter1 = 0;
+                counter2 = 0;
+                image1= right.displayImage(counter1);
+                image2=midRight.displayImage(counter2);
+                image3 =midLeft.displayImage(counter3);
+                image4=left.displayImage(counter4);
+                counter1++;
+            }
+            if(counter3 == 10){
+                counter4++;
+                counter1 = 0;
+                counter2 = 0;
+                counter3 = 0;
+                image1=right.displayImage(counter1);
+                image2=midLeft.displayImage(counter2);
+                image3=midRight.displayImage(counter3);
+                image4=left.displayImage(counter4);
+                counter2++;
+            if(counter4 == 10){
+                image1=right.displayImage(9);
+                image2=midRight.displayImage(9);
+                image3=midLeft.displayImage(9);
+                image4=left.displayImage(9);
+                break;}}
+            }
+        }
+    };
 
 
 }
 
    
-    }
+    
         
 

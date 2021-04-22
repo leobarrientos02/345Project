@@ -10,17 +10,19 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import javafx.scene.image.Image;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javafx.scene.image.ImageView;
 /**
  *
  * @author gorda
  */
-public class clockDigit {
-    private String fileName;
-    protected File file;
-    private int number;
-    protected Image digital;
+public class clockDigit extends ImageInterface {
+    
+     protected int number;
+     private String fileName = "src/images/clock"+number+".png";
+     
     
 
     
@@ -30,27 +32,34 @@ public class clockDigit {
     public clockDigit(int number){
         setNumber(number);
         setFileName(number);
-        ;
+        image = new Image(fileName);
         
+        ;
+    }
+   
+    protected String getFileName(int number){
+        return this.fileName;
+    }
+    protected int getNumber(){
+        return this.number;
     }
     protected void setNumber(int number){
         this.number = number;
     }
     protected void setFileName(int number){
-        this.fileName = "clock"+number+".png";
+        this.fileName = "src/images/clock"+number+".png";
     }
-
-    protected int getNumber(){
-        return this.number;
+    protected ImageView displayImage(int number){
+        setFileName(number);
+        this.image= new Image(fileName);
+        this.imageView = new ImageView(image);
+        return this.imageView;
     }
-    protected String getFileName(){
-        return this.fileName = fileName;
-    }
-
     
+    @Override
     public String toString()
     {
-        return String.format("%s is picture %s", number,fileName);
+        return String.format("%s digit's filename is %s", number,fileName);
     }
 
   
