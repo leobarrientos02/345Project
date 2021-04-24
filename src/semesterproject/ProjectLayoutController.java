@@ -112,8 +112,7 @@ public class ProjectLayoutController implements Initializable {
     private Button timeBtn;
 
     /**
-     * Extends TimerTask class to calculate the running time
-     * of the game, and print it to the TextField
+     * printTime is an extension of TimerTask,to keep track of elapsed gametime
      */
     class printTime extends TimerTask{
 
@@ -238,10 +237,7 @@ public class ProjectLayoutController implements Initializable {
     
  
     /**
-     * This is used to find out the value of the card image presented on
-     * the screen. The logic behind this function is that we get the first
-     * character from the filename which all are different in which we may
-     * use to distinguish the difference between all cards.
+     * This method
      * @param fileName from the Generate_Random_Card method
      * @return a value to use in calculating the solution
      */
@@ -301,11 +297,8 @@ public class ProjectLayoutController implements Initializable {
         return temp;
     }
     /**
-     * This Method uses the Generate_RandomCard method to pick
-     * 4 cards at random to display for the game's purposes. Every time a new card
-     * is generated, there is a check to make sure no card's are duplicated, Uses
-     * previously declared ImageView objects to display cards.
-     * @throws FileNotFoundException 
+     * ShowRandomCard is a method to display images of 4 random cards
+     * @throws FileNotFoundException if filename is wrong
      */
     private void ShowRandomCard() throws FileNotFoundException{
         logAction( "asked for new deck");
@@ -367,10 +360,10 @@ public class ProjectLayoutController implements Initializable {
         Card1111.setImage(image4);
     }
     /**
-     * This method is linked to the Show Solution Button, which displays the solution
+     * displaySolution is a method which displays the solution
      * by reading from a text file showing all solutions for each combination.
      * @param event Pressing the Show Solution Button
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException if answer is not in the key/
      */
     @FXML
     private void displaySolution(ActionEvent event) throws FileNotFoundException {
@@ -433,7 +426,7 @@ public class ProjectLayoutController implements Initializable {
         logAction("generated a new game");
     }
     /**
-     * This method uses the ScriptEngineManager to verify if the user has 
+     * checkAnswer uses the ScriptEngineManager to verify if the user has 
      * input the correct answer or not using the JavaScript Engine. Uses
      * objects from the game class, and
      * @param event Clicking the Verify button
@@ -562,7 +555,7 @@ public class ProjectLayoutController implements Initializable {
         }
     }
     /**
-     * This method quits the application using a button. It displays an alert box
+     * quitProgram ,this method quits the application using a button. It displays an alert box
      * to confirm quitting the application
      * @param event When the quit button is pressed.
      */
