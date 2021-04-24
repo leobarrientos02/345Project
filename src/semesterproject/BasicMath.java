@@ -6,33 +6,54 @@
 package semesterproject;
 
 /**
- *
- * @author leoba
+ * The BasicMath class represents a simple Math equation,
+ * using 2 numbers and an operation.
+ * @author Adam Gordon,Leonel Barrientos, Bryan Gonzalez
  */
 public class BasicMath {
     
     private float a;
     private float b;
     private String operation;
-    
+    /**
+     * Sets 1 value of object
+     * @param v -value of number
+     */
     public void setA( float v){
         a = v;
     }
-    
+    /**
+     *  Sets 1 value of object
+     * @param v value of number
+     */
     public void setB( float v){
         b = v;
     }
-    
+    /**
+     * Sets operation for object
+     * @param o 
+     */
     public void setOperation(String o){
         operation =  o;
     }
-    
+    /**
+     * Gets value of "a" for object
+     * @return float a
+     */
     public float getA(){
         return a;
     }
+    /**
+     * Gets value of "b" for object
+     * @return b
+     */
     public float getB(){
         return b;
     }
+    /**
+     * Gets operation of this object
+     * @return 
+     */
     public String getO(){
         return operation;
     }

@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Team 4's JavaFX based 24 game. Developed for BCS345 at FSC , Spring 2021
+ * @autho AdamGordon(PM), @LeonelBarrientos, and @BryanGonzalez 
+ * @version 1.0
+ * @since 4/24/21
  */
 package semesterproject;
 
@@ -10,9 +11,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 
-
+/**
+ * This is the driver class for the GUI for the 24 game,
+ * using JavaFX 2.0.  
+ * @author Adam Gordon, Leonel Barrientos, Bryan Gonzalez
+ * @version 1.0
+ */
 public class SemesterProject extends Application{
     private menu m;
     @Override

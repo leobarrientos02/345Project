@@ -12,3 +12,11 @@ GAME DATA
 04/21/2021, 23:37:44  ----> User asked for new deck.
 04/21/2021, 23:37:45  ----> User generated a new game.
 04/21/2021, 23:38:13  ----> User Shutdown Application.
+04/22/2021, 13:21:39  ----> User GAME SESSION INITIALIZE.
+04/22/2021, 13:21:39  ----> User asked for new deck.
+04/22/2021, 13:23:13  ----> User asked for new deck.
+04/22/2021, 13:23:13  ----> User generated a new game.
+04/22/2021, 13:24:27  ----> User asked for new deck.
+04/22/2021, 13:24:27  ----> User generated a new game.
+04/22/2021, 13:25:02  ----> User asked for Solution.
+04/22/2021, 13:25:25  ----> User Shutdown Application.
