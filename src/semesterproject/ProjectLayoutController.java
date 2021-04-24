@@ -140,6 +140,7 @@ public class ProjectLayoutController implements Initializable {
     /**
      * Method that starts the game automatically when loaded
      * using parameters in the FXMLLoader class
+     * @throws FileNotFound Exception
      */
     public void initialize(URL url, ResourceBundle rb) {
                 

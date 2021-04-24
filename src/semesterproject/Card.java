@@ -14,14 +14,16 @@ import java.util.List;
  * Card class - This class will represent a playing card by suit,
  * face, and value, and also generate an image for display.
  * 
- * @autho Adam Gordon, Leonel Barrientos, Bryan Gonzalez
+ * @author Adam Gordon, Leonel Barrientos, Bryan Gonzalez
  */
 public class Card {
     
     private String cardFace, suit;
     private Image image;
     private int value;
-   
+   /**
+    * Default Constructor for Card class
+    */
     public Card() {
         setCardFace(cardFace);
         setSuit(suit);
@@ -49,7 +51,7 @@ public class Card {
     }
     /**
      * Gets image of a card object
-     * @return 
+     * @return image of card
      */
     public Image getImage() {
         return this.image;
@@ -73,7 +75,8 @@ public class Card {
      * This method sets the face to be used by the Card Object
      * to generate an image, using a list
      * @param cardFace 2,3,4,5,6,7,8,9,10,jack,queen,king,ace
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException to detect if valid strings for
+     * card objects exist
      */
     public void setCardFace(String cardFace) {
         List<String> validCardFaces = getValidCardFaces();
@@ -105,7 +108,7 @@ public class Card {
     /**
      * Sets suit of a card object
      * @param suit spades, hearts, clubs, diamonds
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException if suit is misspelled, the program will let you know
      */
     public void setSuit(String suit) {
         List<String> validSuits = getValidSuits();
