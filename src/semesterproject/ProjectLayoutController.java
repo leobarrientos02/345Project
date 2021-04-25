@@ -130,6 +130,11 @@ public class ProjectLayoutController implements Initializable {
                 minutes = 0;
                 hours = hours + 1;
             }
+            else if( hours == 24){
+                seconds =0;
+                minutes = 0;
+                hours = 0;
+            }
             timer111.setText(String.valueOf(hours) + "hrs   " + String.valueOf(minutes) + "min    " + String.valueOf(seconds)+ "s  " );
         }         
     }
@@ -146,7 +151,11 @@ public class ProjectLayoutController implements Initializable {
         try {
             logAction("GAME SESSION INITIALIZE");
             ShowRandomCard();
+<<<<<<< Updated upstream
        
+=======
+
+>>>>>>> Stashed changes
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -607,6 +616,7 @@ public class ProjectLayoutController implements Initializable {
     void startTime(ActionEvent event) {
         timer1.schedule( new printTime(), 0, 1000);
     }
+<<<<<<< Updated upstream
 
     
    
@@ -615,4 +625,8 @@ public class ProjectLayoutController implements Initializable {
    
     
         
+=======
+    
+}        
+>>>>>>> Stashed changes
 
