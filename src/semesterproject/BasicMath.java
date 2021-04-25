@@ -69,8 +69,8 @@ public class BasicMath {
     
     /**
      * Overloaded constructor
-     * @param v1 -value a
-     * @param v2 - value b
+     * @param v1 -value1
+     * @param v2 - value2
      * @param o - operation to be performed
      */
     public BasicMath(float v1, float v2, String o){
@@ -101,8 +101,8 @@ public class BasicMath {
     }
     /**
      * This method returns a string of the result of the operator
-     * @param v1 -1st value
-     * @param v2 -2nd value
+     * @param v1 -value1
+     * @param v2 -value2
      * @param c - operator
      * @return  String value of math operation
      */

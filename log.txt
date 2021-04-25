@@ -46,3 +46,25 @@ GAME DATA
 04/25/2021, 03:08:06  ----> User asked for new deck.
 04/25/2021, 03:08:06  ----> User generated a new game.
 04/25/2021, 03:08:07  ----> User asked for Solution.
+04/25/2021, 03:19:13  ----> User Shutdown Application.
+04/25/2021, 13:51:24  ----> User GAME SESSION INITIALIZE.
+04/25/2021, 13:51:24  ----> User asked for new deck.
+04/25/2021, 13:52:18  ----> User asked for Solution.
+04/25/2021, 13:52:27  ----> User asked for new deck.
+04/25/2021, 13:52:27  ----> User generated a new game.
+04/25/2021, 13:52:29  ----> User asked for Solution.
+04/25/2021, 13:52:44  ----> User asked for new deck.
+04/25/2021, 13:52:44  ----> User generated a new game.
+04/25/2021, 13:52:56  ----> User asked for Solution.
+04/25/2021, 13:53:36  ----> User asked for new deck.
+04/25/2021, 13:53:36  ----> User generated a new game.
+04/25/2021, 13:53:37  ----> User asked for Solution.
+04/25/2021, 13:55:04  ----> User asked for new deck.
+04/25/2021, 13:55:04  ----> User generated a new game.
+04/25/2021, 13:55:31  ----> User asked for Solution.
+04/25/2021, 14:10:40  ----> User GAME SESSION INITIALIZE.
+04/25/2021, 14:10:40  ----> User asked for new deck.
+04/25/2021, 14:10:43  ----> User asked for new deck.
+04/25/2021, 14:10:43  ----> User generated a new game.
+04/25/2021, 14:10:45  ----> User asked for Solution.
+04/25/2021, 14:15:07  ----> User Shutdown Application.
