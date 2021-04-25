@@ -17,7 +17,7 @@ public class BasicMath {
     private String operation;
     /**
      * Sets 1 value of object
-     * @param v -value of number
+     * @param v value of number
      */
     public void setA( float v){
         a = v;
@@ -69,8 +69,8 @@ public class BasicMath {
     
     /**
      * Overloaded constructor
-     * @param v1 -value a
-     * @param v2 - value b
+     * @param v1 -value1
+     * @param v2 - value2
      * @param o - operation to be performed
      */
     public BasicMath(float v1, float v2, String o){
@@ -101,8 +101,8 @@ public class BasicMath {
     }
     /**
      * This method returns a string of the result of the operator
-     * @param v1 -1st value
-     * @param v2 -2nd value
+     * @param v1 -value1
+     * @param v2 -value2
      * @param c - operator
      * @return  String value of math operation
      */
@@ -112,5 +112,12 @@ public class BasicMath {
         
         return String.valueOf(answer);
     }
-    
+    /**
+     * This method overrides the object toString method 
+     * @return String expression of basic math
+     */
+    @Override
+    public String toString(){
+        return String.format("From the BasicMath Class : %s "+"%s"+"%s is the expression.",a,operation,b);
+    }
 } 
