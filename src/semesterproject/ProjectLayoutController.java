@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.script.ScriptEngine;
@@ -50,33 +51,30 @@ public class ProjectLayoutController implements Initializable {
     private File f;
     private PrintWriter pw= null;
 
-    
-    // Images
-
-    // Card InputStream variables
-
+    // Card InputStream variable
     private InputStream stream;
     private InputStream stream2;
     private InputStream stream3;
     private InputStream stream4;
+
+
+    @FXML
+    private Button timeBtn2;
+
     //Card Image variables
     private Image image1;
     private Image image2;
     private Image image3;
     private Image image4;
 
-
     
     //File Name
     private String fileName;
     private int value1, value2, value3, value4;
     private float answer;
-    
+
     private String userInput;
 
-    
-  
-    
 
     private Expression express;
 
@@ -115,10 +113,11 @@ public class ProjectLayoutController implements Initializable {
      * printTime is an extension of TimerTask,to keep track of elapsed gametime
      */
     class printTime extends TimerTask{
+ 
 
         @Override
         public void run() {
-            
+ 
             seconds = seconds +1;
             
             if(seconds == 59){
@@ -523,7 +522,6 @@ public class ProjectLayoutController implements Initializable {
                     if( answer == 24 ){
                     
                         logAction("WON THE GAME");
-                        timer1.cancel();
                         String totalT = timer111.getText();
                         // Send an alert box to tell the user they won
                         Alert alert4 = new Alert(AlertType.CONFIRMATION,"Do you want to play again?");
@@ -535,8 +533,13 @@ public class ProjectLayoutController implements Initializable {
                                     checkAnswer.clear();
                                     ShowRandomCard();
                                     answerDisplay.clear();
-                                    timer1.cancel();
+  
+                                    // Resets the time
                                     timer111.clear();
+                                    seconds = 0;
+                                    minutes = 0;
+                                    hours = 0;
+                                    
                                     logAction("generated a new game");
                                 } catch (FileNotFoundException ex) {
                                     Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
@@ -602,6 +605,22 @@ public class ProjectLayoutController implements Initializable {
             pw.close();
         }
     }
+
+    @FXML
+    void EndTime(ActionEvent event) throws InterruptedException {
+        timeBtn2 = (Button)event.getSource();
+        
+        switch( timeBtn2.getText()){
+            
+            case "Reset Timer":
+                
+                timer111.clear();
+                seconds = 0;
+                minutes = 0;
+                hours = 0;
+                break;
+        }
+    }
     
     /**
      * Starts a new game timer upon Refresh or opening the application
@@ -613,7 +632,4 @@ public class ProjectLayoutController implements Initializable {
     }
 
 
-    
-   
-
-}        
+}
