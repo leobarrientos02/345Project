@@ -31,9 +31,7 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import java.util.List;
-
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -45,7 +43,7 @@ import javax.script.ScriptException;
 /**
  * FXML Controller class for Card Game Project
  *
- * @author gorda and Leonel
+ * @author Adam Gordon, Leonel Barrientos, 
  */
 public class ProjectLayoutController implements Initializable {
 
@@ -59,14 +57,16 @@ public class ProjectLayoutController implements Initializable {
     private InputStream stream3;
     private InputStream stream4;
 
+
     @FXML
     private Button timeBtn2;
-    
+
     //Card Image variables
     private Image image1;
     private Image image2;
     private Image image3;
     private Image image4;
+
     
     //File Name
     private String fileName;
@@ -74,6 +74,7 @@ public class ProjectLayoutController implements Initializable {
     private float answer;
 
     private String userInput;
+
 
     private Expression express;
 
@@ -105,8 +106,12 @@ public class ProjectLayoutController implements Initializable {
     private TextField timer111;
     private int seconds=0, minutes=0, hours=0;
     private Timer timer1 = new Timer();
+    @FXML
+    private Button timeBtn;
 
-    
+    /**
+     * printTime is an extension of TimerTask,to keep track of elapsed gametime
+     */
     class printTime extends TimerTask{
  
 
@@ -135,7 +140,11 @@ public class ProjectLayoutController implements Initializable {
     
     
     @Override
-    // starts the game
+    /**
+     * Method that starts the game automatically when loaded
+     * using parameters in the FXMLLoader class
+     * @throws FileNotFound Exception
+     */
     public void initialize(URL url, ResourceBundle rb) {
                 
         try {
@@ -146,12 +155,12 @@ public class ProjectLayoutController implements Initializable {
         }
     }
     
-    // This is a function we use to build the filename of all the images of the cards.
-    // Each filename were unique by the card value and the card type. This function
-    // first generates a random number between 1-4 in which each number was associated to a card type.
-    // Next we generate a number between 1-13 in which each number was associated to a card value.
-    // Both random output are used in a string that would generate a complete filename
-    // that may be found in our images folder.
+
+    /**
+     * This method uses the Random class to generate a filename
+     * to match the card files in the image folder
+     * @return fileName -Returns the filename of a card image 
+     */
     public String Generate_RandomCard(){
         //Generate a random card from the deck
        
@@ -229,11 +238,12 @@ public class ProjectLayoutController implements Initializable {
 
     }
     
-    // This is used to find out the value of the card image presented on
-    // the screen. The logic behind this function is that we get the first
-    // character from the filename which all are different in which we may
-    // use to distinguish the difference between all cards. ** If the first
-    // char in the filename is 'a' ( ace ) we set temp to 1;
+ 
+    /**
+     * This method
+     * @param fileName from the Generate_Random_Card method
+     * @return a value to use in calculating the solution
+     */
     private int getCardValue(String fileName){
         
         int temp=0;
@@ -289,7 +299,10 @@ public class ProjectLayoutController implements Initializable {
         
         return temp;
     }
-    
+    /**
+     * ShowRandomCard is a method to display images of 4 random cards
+     * @throws FileNotFoundException if filename is wrong
+     */
     private void ShowRandomCard() throws FileNotFoundException{
         logAction( "asked for new deck");
         String file = Generate_RandomCard();
@@ -349,7 +362,12 @@ public class ProjectLayoutController implements Initializable {
         Card111.setImage(image3);
         Card1111.setImage(image4);
     }
-   
+    /**
+     * displaySolution is a method which displays the solution
+     * by reading from a text file showing all solutions for each combination.
+     * @param event Pressing the Show Solution Button
+     * @throws FileNotFoundException if answer is not in the key/
+     */
     @FXML
     private void displaySolution(ActionEvent event) throws FileNotFoundException {
         cheatkey = (Button)event.getSource();
@@ -397,7 +415,11 @@ public class ProjectLayoutController implements Initializable {
          }
         
     }
-
+    /**
+     * This method starts the game upon program launch, as well as when
+     * the user presses the refresh button, showing the random cards and starting the timer
+     * @throws FileNotFoundException 
+     */
     @FXML
     private void generateNewGame() throws FileNotFoundException{
         checkAnswer.clear();
@@ -406,7 +428,14 @@ public class ProjectLayoutController implements Initializable {
        
         logAction("generated a new game");
     }
-
+    /**
+     * checkAnswer uses the ScriptEngineManager to verify if the user has 
+     * input the correct answer or not using the JavaScript Engine. Uses
+     * objects from the game class, and
+     * @param event Clicking the Verify button
+     * @throws FileNotFoundException
+     * @throws ScriptException 
+     */
     @FXML
     private void checkAnswer(ActionEvent event) throws FileNotFoundException, ScriptException {
         
@@ -532,7 +561,11 @@ public class ProjectLayoutController implements Initializable {
 
         }
     }
-
+    /**
+     * quitProgram ,this method quits the application using a button. It displays an alert box
+     * to confirm quitting the application
+     * @param event When the quit button is pressed.
+     */
     @FXML
     private void quitProgram(ActionEvent event) {
         
@@ -553,7 +586,10 @@ public class ProjectLayoutController implements Initializable {
         }
     }
     
-    
+    /**
+     * This method writes user actions to a log file, complete with a timestamp
+     * @param event - whenever a user action is done, via button press or text input
+     */
     public void logAction(String event){
         
         String timeStamp = new SimpleDateFormat("MM/dd/yyyy, HH:mm:ss").format(new Date());
@@ -563,7 +599,7 @@ public class ProjectLayoutController implements Initializable {
         pw = new PrintWriter(writer);
         pw.println(timeStamp + "  ----> User " + event + ".");
         }catch(IOException e){
-            System.out.println("ERROR");
+            System.out.println("File does not exist");
         }
         if( pw !=null){
             pw.close();
@@ -586,11 +622,14 @@ public class ProjectLayoutController implements Initializable {
         }
     }
     
-
+    /**
+     * Starts a new game timer upon Refresh or opening the application
+     * @param event 
+     */
     @FXML
     void startTime(ActionEvent event) {
         timer1.schedule( new printTime(), 0, 1000);
     }
-    
+
 }
 

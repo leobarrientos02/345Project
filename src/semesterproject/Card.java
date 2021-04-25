@@ -12,28 +12,35 @@ import java.util.List;
 
 /**
  * Card class - This class will represent a playing card by suit,
- * face, and value
- * @author Adam Gordon
+ * face, and value, and also generate an image for display.
+ * 
+ * @author Adam Gordon, Leonel Barrientos, Bryan Gonzalez
  */
-public class Card extends ImageInterface{
+public class Card {
+    
     private String cardFace, suit;
-    protected Image image;
-    protected Integer value;
- // constructor
+    private Image image;
+    private int value;
+   /**
+    * Default Constructor for Card class
+    */
     public Card() {
         setCardFace(cardFace);
         setSuit(suit);
         String fileName = cardFace + "_of_"+suit+".png";
         image = new Image("./images/"+fileName);
     }
-
+    /**
+     * This method gets face representative of a playing card for the Card class
+     * @return cardFace "2","3","4","5","6","7","8","9","10","jack","queen","king","ace"
+     */
     public String getCardFace() {
         return cardFace;
     }
 
     /**
-     * This method will validate that the card images are correct and will
-     * have the correct value when instantiating the argument
+     * This method validates the strings that are valid for
+     * card representation.
      * 
      * @return 2,3,4,5,6,7,8,9,10,jack,queen,king,ace
      */
@@ -42,19 +49,34 @@ public class Card extends ImageInterface{
         return Arrays.asList("2","3","4","5","6","7","8","9","10","jack",
                             "queen","king","ace");
     }
-
+    /**
+     * Gets image of a card object
+     * @return image of card
+     */
     public Image getImage() {
-        return image;
+        return this.image;
     }
-
+    /**
+     * Gets value of a card object
+     * @return 1,2,3,4,5,6,7,8,9,10,11,12,13
+     */
+     public int getCardValue(){
+        return this.value;
+    }
+    /**
+     * Sets image for card object
+     * @param image filename of the image for the object to be set
+     */
     public void setImage(Image image) {
         this.image = image;
     }
 
     /**
-     * Method to set card object to correct value, throws exception if
-     * 
-     * @param cardFace 2,3,4,5,6,7,8,9,10,jack,queen,king
+     * This method sets the face to be used by the Card Object
+     * to generate an image, using a list
+     * @param cardFace 2,3,4,5,6,7,8,9,10,jack,queen,king,ace
+     * @throws IllegalArgumentException to detect if valid strings for
+     * card objects exist
      */
     public void setCardFace(String cardFace) {
         List<String> validCardFaces = getValidCardFaces();
@@ -66,25 +88,28 @@ public class Card extends ImageInterface{
             throw new IllegalArgumentException("Valid face names are: "+
                             validCardFaces);
     }
-    public void setCardValue(int value){
-        this.value = value;
-    }
-    public int getCardValue(){
-        return this.value;
-    }
+    /**
+     * Returns suit of a card object
+     * @return  spades, hearts, clubs, diamonds
+     */
     public String getSuit() {
         return suit;
     }
 
     /**
-     * This method will return a list of valid suits
+     * Returns a list of valid suits of a card
+     * 
      * @return spades, hearts, clubs, diamonds
      */
     public static List<String> getValidSuits()
     {
         return Arrays.asList("hearts","diamonds","spades","clubs");
     }
-
+    /**
+     * Sets suit of a card object
+     * @param suit spades, hearts, clubs, diamonds
+     * @throws IllegalArgumentException if suit is misspelled, the program will let you know
+     */
     public void setSuit(String suit) {
         List<String> validSuits = getValidSuits();
         suit = suit.toLowerCase();
@@ -94,9 +119,13 @@ public class Card extends ImageInterface{
         else
             throw new IllegalArgumentException("valid suits are: "+ validSuits);
     }
-
+    /**
+     * Overrides toString method of object class, 
+     * @return String representation of a Card object
+     */
+    @Override
     public String toString()
     {
-        return String.format("%s of %s, value is %s", cardFace, suit,value);
+        return String.format("This card is %s of %s, it's image is at %s", cardFace, suit,image);
     }
 }
