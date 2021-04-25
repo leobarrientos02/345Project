@@ -34,8 +34,6 @@ import java.util.Date;
 
 import java.util.List;
 
-import java.util.HashSet;
-import java.util.Set;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -55,42 +53,27 @@ public class ProjectLayoutController implements Initializable {
     private File f;
     private PrintWriter pw= null;
 
-    
-    // Images
-
-    // Card InputStream variables
-
+    // Card InputStream variable
     private InputStream stream;
     private InputStream stream2;
     private InputStream stream3;
     private InputStream stream4;
-    //Clock Image Variables
-    private InputStream stream5;
-    private InputStream stream6;
-    private InputStream stream7;
-    private InputStream stream8;
+
+    @FXML
+    private Button timeBtn2;
+    
     //Card Image variables
     private Image image1;
     private Image image2;
     private Image image3;
     private Image image4;
-    //Digit Class Instance Variables
-    clockDigit right = new clockDigit(0);
-    clockDigit midRight = new clockDigit(0);
-    clockDigit midLeft = new clockDigit(0);
-    clockDigit left = new clockDigit(0);
-
     
     //File Name
     private String fileName;
     private int value1, value2, value3, value4;
     private float answer;
-    
-    private String userInput;
 
-    
-    private long min, sec, hr, totalSeconds;
-    
+    private String userInput;
 
     private Expression express;
 
@@ -125,10 +108,11 @@ public class ProjectLayoutController implements Initializable {
 
     
     class printTime extends TimerTask{
+ 
 
         @Override
         public void run() {
-            
+ 
             seconds = seconds +1;
             
             if(seconds == 59){
@@ -157,11 +141,6 @@ public class ProjectLayoutController implements Initializable {
         try {
             logAction("GAME SESSION INITIALIZE");
             ShowRandomCard();
-<<<<<<< Updated upstream
-       
-=======
-
->>>>>>> Stashed changes
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -514,7 +493,6 @@ public class ProjectLayoutController implements Initializable {
                     if( answer == 24 ){
                     
                         logAction("WON THE GAME");
-                        timer1.cancel();
                         String totalT = timer111.getText();
                         // Send an alert box to tell the user they won
                         Alert alert4 = new Alert(AlertType.CONFIRMATION,"Do you want to play again?");
@@ -526,8 +504,13 @@ public class ProjectLayoutController implements Initializable {
                                     checkAnswer.clear();
                                     ShowRandomCard();
                                     answerDisplay.clear();
-                                    timer1.cancel();
+  
+                                    // Resets the time
                                     timer111.clear();
+                                    seconds = 0;
+                                    minutes = 0;
+                                    hours = 0;
+                                    
                                     logAction("generated a new game");
                                 } catch (FileNotFoundException ex) {
                                     Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
@@ -586,112 +569,28 @@ public class ProjectLayoutController implements Initializable {
             pw.close();
         }
     }
+
+    @FXML
+    void EndTime(ActionEvent event) throws InterruptedException {
+        timeBtn2 = (Button)event.getSource();
+        
+        switch( timeBtn2.getText()){
+            
+            case "Reset Timer":
+                
+                timer111.clear();
+                seconds = 0;
+                minutes = 0;
+                hours = 0;
+                break;
+        }
+    }
     
 
     @FXML
     void startTime(ActionEvent event) {
         timer1.schedule( new printTime(), 0, 1000);
     }
-<<<<<<< Updated upstream
-
-
-    public void timer(){
-        
-    }
-
     
-    public void gameTimer(){
-        
-
-       Timer playTime = new Timer();
-       TimerTask task = new TimerTask(){
-           @Override
-           public void run(){
-               int counter1 = 0;
-               int counter2 = 0;
-               int counter3 = 0;
-               int counter4 = 0;
-       clockDigit right = new clockDigit(0);
-       clockDigit midRight = new clockDigit(0);
-       clockDigit midLeft = new clockDigit(0);
-       clockDigit left = new clockDigit(0);
-       right.setNumber(counter1++);
-           }
-       };
-    public void runCLock(TimerTask task,clockDigit digit1,clockDigit digit2,clockDigit digit3,clockDigit digit4){
-       // digit1 = right.
-           
-
-    // setting up gameclock task
-     Timer gameClock = new Timer();
-    TimerTask increment = new TimerTask() {
-        @Override
-        public void run() {
-            // uses pre-initalized imageview variables
-            runClock(second2,second1,minute2,minute1);
-        }
-
-
-        private void runClock(ImageView image1,ImageView image2,ImageView image3,ImageView image4) {
-            while(true){
-                // each counter corresponds to each digit object, the point is to increase the right most digit by 1 till it gets to 10
-                //and then when it gets to 10 it changes the farthest left digit and resets to 0 until the clock maxes out at 9999
-            int counter1 = 0;
-            int counter2 = 0;
-            int counter3 = 0;
-            int counter4= 0;
-            image1 =right.displayImage(counter1);
-            image2 =midRight.displayImage(counter2);
-            image3 =midLeft.displayImage(counter3);
-            image4 =left.displayImage(counter4);
-            counter1++;
-            if(counter1 ==10){
-                counter2++;
-                counter1 = 0;
-                image1 =right.displayImage(counter1);
-                image2 = midRight.displayImage(counter2);
-                image3 =midLeft.displayImage(counter3);
-                image4 = left.displayImage(counter4);
-                counter1++;         
-            }
-            if(counter2 == 10){
-                counter3++;
-                counter1 = 0;
-                counter2 = 0;
-                image1= right.displayImage(counter1);
-                image2=midRight.displayImage(counter2);
-                image3 =midLeft.displayImage(counter3);
-                image4=left.displayImage(counter4);
-                counter1++;
-            }
-            if(counter3 == 10){
-                counter4++;
-                counter1 = 0;
-                counter2 = 0;
-                counter3 = 0;
-                image1=right.displayImage(counter1);
-                image2=midLeft.displayImage(counter2);
-                image3=midRight.displayImage(counter3);
-                image4=left.displayImage(counter4);
-                counter2++;
-            if(counter4 == 10){
-                image1=right.displayImage(9);
-                image2=midRight.displayImage(9);
-                image3=midLeft.displayImage(9);
-                image4=left.displayImage(9);
-                break;}}
-            }
-        }
-    };
-
-
 }
-
-   
-    
-        
-=======
-    
-}        
->>>>>>> Stashed changes
 
