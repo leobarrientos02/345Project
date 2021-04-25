@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="648.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semesterproject.ProjectLayoutController">
+<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="648.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semesterproject.ProjectLayoutController">
     <stylesheets>
         <URL value="@projectlayout.css" />
     </stylesheets>
@@ -54,10 +54,6 @@
       <Separator layoutX="450.0" layoutY="154.0" orientation="VERTICAL" prefHeight="323.0" prefWidth="19.0" />
       <Separator layoutX="886.0" layoutY="154.0" orientation="VERTICAL" prefHeight="323.0" prefWidth="0.0" />
       <Separator layoutX="665.0" layoutY="154.0" orientation="VERTICAL" prefHeight="323.0" prefWidth="19.0" />
-      <ImageView fx:id="minute1" fitHeight="80.0" fitWidth="60.0" layoutX="721.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="minute2" fitHeight="80.0" fitWidth="60.0" layoutX="654.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="second1" fitHeight="80.0" fitWidth="60.0" layoutX="711.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="second2" fitHeight="80.0" fitWidth="60.0" layoutX="771.0" layoutY="562.0" pickOnBounds="true" preserveRatio="true" />
       <TextField fx:id="timer111" alignment="CENTER" editable="false" layoutX="406.0" layoutY="570.0" prefHeight="54.0" prefWidth="121.0" promptText="00 : 00 : 00">
          <font>
             <Font name="Calibri Bold" size="14.0" />

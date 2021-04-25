@@ -6,29 +6,26 @@
 package semesterproject;
 
 
-import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import javafx.animation.AnimationTimer;
-import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.Border;
+
 
 /**
- *
- * @author leoba
+ * Menu class is run upon Program Startup to introduce player
+ * to the game via Alert Box
+ * @author Adam Gordon, Leonel Barrientos, Bryan Gonzalez
  */
 
 
 public class menu {
 
     private Alert menu;
-    
+    /**
+     * Initial screen that loads on startup describing the game
+     * @throws FileNotFoundException if files not found
+     */
     public void showMenu() throws FileNotFoundException{
         
         
