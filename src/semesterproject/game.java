@@ -10,8 +10,9 @@ import java.util.List;
 
 /**
  * The game class extends feature of BasicMath and uses
- * it's method's to evaluate 
- * @author leoba
+ * it's method's to evaluate expressions to match game
+ * solutions
+ * @author Adam Gordon,Leonel Barrientos, Adam Gordon
  */
 public class game extends BasicMath {
    
@@ -131,7 +132,7 @@ public class game extends BasicMath {
     /**
      * This method tests to see if a number matches up with another number
      * @param str string to evaluate
-     * @return true 
+     * @return true,false 
      */
     public boolean isNumber(String str){
         for(int i=0;i<str.length();i++){
@@ -151,6 +152,13 @@ public class game extends BasicMath {
         str = str.replaceAll("[^0-9]+", " ");
         return Arrays.asList(str.trim().split(" "));
     }
-    
+    /**
+     * This method overrides the toString class in basic Math
+     * @return String form of game solution
+     */
+    @Override
+    public String toString(){
+        return String.format("%s%s%s%s%s%s",num1,op1,num2,op2,num3,op3,num4);
+    }
 
 }

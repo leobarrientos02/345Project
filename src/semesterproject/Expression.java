@@ -38,14 +38,14 @@ public class Expression extends BasicMath {
     }
     /**
      * retrieves value 2
-     * @return 2nd value
+     * @return value 2
      */
     public int getValue2(){
         return value2;
     }
     /**
      * Sets value 2
-     * @param value - 2nd value to be evaluated 
+     * @param value -  value 2 to be evaluated 
      */
     public void setValue2(int value){
         value2 = value;
@@ -65,15 +65,15 @@ public class Expression extends BasicMath {
         value3 = value;
     }    
     /**
-     * Sets 4th value
-     * @param value 4th value in expression to  be evaluated
+     * Sets value 4
+     * @param value  value 4 in expression to  be evaluated
      */
     public void setValue4(int value){
         value4 = value;
     }    
     /**
-     * retrieves 4th value
-     * @return 4th value
+     * retrieves value 4
+     * @return value 4
      */
     public int getValue4(){
         return value4;
@@ -107,8 +107,8 @@ public class Expression extends BasicMath {
         op1 = c;
     }
     /**
-     * Sets 2nd operand
-     * @param c 2nd operand
+     * Sets  operand 2
+     * @param c  operand 2
      */
     public void setOp2(String c){
         op2 = c;
@@ -137,10 +137,10 @@ public class Expression extends BasicMath {
     
     /**
      * Constructor for Expression with values input
-     * @param v1 1st value
-     * @param v2 2nd value
-     * @param v3 3rd value
-     * @param v4 4th value
+     * @param v1 value 1
+     * @param v2 value 2
+     * @param v3 value 3
+     * @param v4 value 4
      */
     public Expression(int v1, int v2, int v3, int v4){
             
@@ -160,5 +160,15 @@ public class Expression extends BasicMath {
         String Expression = String.valueOf(value1)+ op1 + String.valueOf(value2) + op2 +
                 String.valueOf(value3) + op3 + String.valueOf(value4);
         return Expression;
+    }
+    /**
+     * Overrides toString method of BasicMath class
+     * @return String format of expression class
+     */
+    @Override
+    
+    public String toString(){
+        
+      return String.format("From the Expression Class %s %s %s %s %s %s %s",value1,op1,value2,op2,value3,op3,value4);
     }
 }

@@ -17,7 +17,7 @@ public class BasicMath {
     private String operation;
     /**
      * Sets 1 value of object
-     * @param v -value of number
+     * @param v value of number
      */
     public void setA( float v){
         a = v;
@@ -112,5 +112,12 @@ public class BasicMath {
         
         return String.valueOf(answer);
     }
-    
+    /**
+     * This method overrides the object toString method 
+     * @return String expression of basic math
+     */
+    @Override
+    public String toString(){
+        return String.format("From the BasicMath Class : %s "+"%s"+"%s is the expression.",a,operation,b);
+    }
 } 
