@@ -106,7 +106,7 @@ public class BasicMath {
      * @param c - operator
      * @return  String value of math operation
      */
-    public String print(int v1, int v2, char c){
+    public String printExpression(int v1, int v2, char c){
         
         float answer = applyOperator(v1,v2,c);
         

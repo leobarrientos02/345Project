@@ -31,7 +31,9 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -56,7 +58,10 @@ public class ProjectLayoutController implements Initializable {
     private InputStream stream2;
     private InputStream stream3;
     private InputStream stream4;
-
+    private Card card1 = new Card();
+    private Card card2 = new Card();
+    private Card card3 = new Card();
+    private Card card4 = new Card();
 
     @FXML
     private Button timeBtn2;
@@ -79,15 +84,7 @@ public class ProjectLayoutController implements Initializable {
     private Expression express;
 
     @FXML
-    private AnchorPane anchorpane;
-    @FXML
-    private ImageView Card1;
-    @FXML
-    private ImageView Card11;
-    @FXML
-    private ImageView Card111;
-    @FXML
-    private ImageView Card1111;
+    private AnchorPane anchorPane;
     @FXML
     private TextField answerDisplay;
     @FXML
@@ -108,9 +105,18 @@ public class ProjectLayoutController implements Initializable {
     private Timer timer1 = new Timer();
     @FXML
     private Button timeBtn;
+    @FXML
+    private ImageView leftBox;
+    @FXML
+    private ImageView midLeftBox;
+    @FXML
+    private ImageView rightBox;
+    @FXML
+    private ImageView midRightBox;
+
 
     /**
-     * printTime is an extension of TimerTask,to keep track of elapsed gametime
+     * printTime is an extension of TimerTask,to keep track of elapsed game time
      */
     class printTime extends TimerTask{
  
@@ -149,19 +155,19 @@ public class ProjectLayoutController implements Initializable {
                 
         try {
             logAction("GAME SESSION INITIALIZE");
-            ShowRandomCard();
+            showRandomCard();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-
     /**
-     * This method uses the Random class to generate a filename
-     * to match the card files in the image folder
-     * @return fileName -Returns the filename of a card image 
+     * This method takes in a card object, and uses a RNG system
+     * to choose an unused card for the game
+     * @param card
+     * @return 
      */
-    public String generateRandomCard(){
+    public Card generateRandomCard(Card card){
         //Generate a random card from the deck
        
         fileName="";
@@ -233,8 +239,10 @@ public class ProjectLayoutController implements Initializable {
             default:
                 break;
         }
-        //returns card image
-        return fileName = value + "_of_" + cardType + ".png";
+        card.setSuit(cardType);
+        card.setCardFace(value);
+        card.setFileName(value, cardType);
+        return card;
 
     }
     
@@ -303,13 +311,13 @@ public class ProjectLayoutController implements Initializable {
      * ShowRandomCard is a method to display images of 4 random cards
      * @throws FileNotFoundException if filename is wrong
      */
-    public void ShowRandomCard() throws FileNotFoundException{
+    public void showRandomCard() throws FileNotFoundException{
         logAction( "asked for new deck");
-        String file = generateRandomCard();
-        stream = new FileInputStream("src/images/" + file);
+        generateRandomCard(card1);
+        stream = new FileInputStream("src/images/" + card1.getFileName());
         image1 = new Image(stream);
         
-        value1 = getCardValue(fileName);
+        value1 = getCardValue(card1.getFileName());
         
         
         /* The first card value can be any card from the image folder
@@ -318,37 +326,37 @@ public class ProjectLayoutController implements Initializable {
         // random card we test if the file is equal to the previous cards
         // file name, if so regenerate another card else stream the file
         // show the image to the screen.*/
-        String file2 = generateRandomCard();
-        if(file.equals(file2)){
-            file2 = generateRandomCard();
+        generateRandomCard(card2);
+        if(card1.getFileName().equals(card2.getFileName())){
+            generateRandomCard(card2);
         }
-        if( file.equals(file2) == false){
-            stream2 = new FileInputStream("src/images/"+ file2);
+        if( card1.getFileName().equals(card2.getFileName()) == false){
+            stream2 = new FileInputStream("src/images/"+ card2.getFileName());
             image2 = new Image(stream2);           
         }
-        value2 = getCardValue(fileName);
+        value2 = getCardValue(card2.getFileName());
         
         
-        String file3 = generateRandomCard();
-        if(file3.equals(file2)|| file3.equals(file)){
-            file3 = generateRandomCard();
+        generateRandomCard(card3);
+        if(card3.getFileName().equals(card2.getFileName())||card3.getFileName().equals(card1.getFileName())){
+            card3 = generateRandomCard(card3);
         }
         
-        if(file3.equals(file2) == false || file3.equals(file) == false){
-            stream3 = new FileInputStream("src/images/" + file3);
+        if(card3.getFileName().equals(card2.getFileName()) == false || card3.getFileName().equals(card1.getFileName()) == false){
+            stream3 = new FileInputStream("src/images/" + card3.getFileName());
             image3 = new Image(stream3);            
         }
-        value3 = getCardValue(fileName);     
+        value3 = getCardValue(card3.getFileName());     
         
-        String file4 = generateRandomCard();
-        if(file4.equals(file3)|| file4.equals(file2) || file4.equals(file)){
-            file4=generateRandomCard();
+       generateRandomCard(card4);
+        if(card4.getFileName().equals(card4.getFileName())|| card4.getFileName().equals(card2.getFileName()) || card4.getFileName().equals(card1.getFileName())){
+            generateRandomCard(card4);
         }
-        if(file4.equals(file3) == false || file4.equals(file3) == false || file4.equals(file) == false){
-            stream4 = new FileInputStream("src/images/" + file4);
+        if(card4.getFileName().equals(card4.getFileName()) == false || card4.getFileName().equals(card2.getFileName()) == false || card4.getFileName().equals(card1.getFileName()) == false){
+            stream4 = new FileInputStream("src/images/" + card4.getFileName());
             image4 = new Image(stream4);
         }
-        value4 = getCardValue(fileName);
+        value4 = getCardValue(card4.getFileName());
             
         
         //Testing if values are equal to cards on screen
@@ -357,10 +365,10 @@ public class ProjectLayoutController implements Initializable {
         
         
         // Create the image view
-        Card1.setImage(image1);
-        Card11.setImage(image2);
-        Card111.setImage(image3);
-        Card1111.setImage(image4);
+        rightBox.setImage(image1);
+        midRightBox.setImage(image2);
+        midLeftBox.setImage(image3);
+        leftBox.setImage(image4);
     }
     /**
      * displaySolution is a method which displays the solution
@@ -423,7 +431,7 @@ public class ProjectLayoutController implements Initializable {
     @FXML
     public void generateNewGame() throws FileNotFoundException{
         checkAnswer.clear();
-        ShowRandomCard();
+        showRandomCard();
         answerDisplay.clear();
        
         logAction("generated a new game");
@@ -531,7 +539,7 @@ public class ProjectLayoutController implements Initializable {
                                 try {
                                     // Resets the game
                                     checkAnswer.clear();
-                                    ShowRandomCard();
+                                    showRandomCard();
                                     answerDisplay.clear();
   
                                     // Resets the time
@@ -605,9 +613,13 @@ public class ProjectLayoutController implements Initializable {
             pw.close();
         }
     }
-
+    /**
+     * the endTime method resets the clock to 0.
+     * @param event tmeBtn2
+     * @throws InterruptedException handled by default exception handler 
+     */
     @FXML
-    void EndTime(ActionEvent event) throws InterruptedException {
+    public void endTime(ActionEvent event) throws InterruptedException {
         timeBtn2 = (Button)event.getSource();
         
         switch( timeBtn2.getText()){
@@ -620,6 +632,7 @@ public class ProjectLayoutController implements Initializable {
                 hours = 0;
                 break;
         }
+        logAction("reset timer");
     }
     
     /**
@@ -629,6 +642,7 @@ public class ProjectLayoutController implements Initializable {
     @FXML
     public void startTime(ActionEvent event) {
         timer1.schedule( new printTime(), 0, 1000);
+        logAction("Started timer");
     }
 
 
