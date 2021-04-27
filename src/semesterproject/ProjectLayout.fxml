@@ -9,17 +9,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="648.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semesterproject.ProjectLayoutController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="648.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semesterproject.ProjectLayoutController">
     <stylesheets>
         <URL value="@projectlayout.css" />
     </stylesheets>
    <children>
       <Separator layoutX="11.0" layoutY="147.0" prefHeight="13.0" prefWidth="878.0" />
-      <ImageView fx:id="Card1" fitHeight="323.0" fitWidth="206.0" layoutX="17.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
+      <ImageView fx:id="leftBox" fitHeight="323.0" fitWidth="206.0" layoutX="17.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
       <Separator layoutX="215.0" layoutY="154.0" orientation="VERTICAL" prefHeight="323.0" prefWidth="19.0" />
-      <ImageView fx:id="Card11" fitHeight="323.0" fitWidth="224.0" layoutX="225.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
-      <ImageView fx:id="Card111" fitHeight="323.0" fitWidth="206.0" layoutX="460.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
-      <ImageView fx:id="Card1111" fitHeight="323.0" fitWidth="203.0" layoutX="678.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
+      <ImageView fx:id="midLeftBox" fitHeight="323.0" fitWidth="224.0" layoutX="225.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
+      <ImageView fx:id="midRightBox" fitHeight="323.0" fitWidth="206.0" layoutX="460.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
+      <ImageView fx:id="rightBox" fitHeight="323.0" fitWidth="203.0" layoutX="678.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" styleClass="card" />
       <Separator layoutX="8.0" layoutY="470.0" prefHeight="13.0" prefWidth="878.0" />
       <TextField fx:id="answerDisplay" alignment="CENTER" editable="false" layoutX="272.0" layoutY="54.0" prefHeight="47.0" prefWidth="375.0" promptText="SOLUTION">
          <font>
@@ -63,7 +63,7 @@
             <Font name="Calibri Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="timeBtn2" layoutX="541.0" layoutY="575.0" mnemonicParsing="false" onAction="#EndTime" prefHeight="38.0" prefWidth="93.0" text="Reset Timer" textFill="#f32828">
+      <Button fx:id="timeBtn2" layoutX="541.0" layoutY="575.0" mnemonicParsing="false" onAction="#endTime" prefHeight="38.0" prefWidth="93.0" text="Reset Timer" textFill="#f32828">
          <font>
             <Font name="Calibri Bold" size="14.0" />
          </font>
