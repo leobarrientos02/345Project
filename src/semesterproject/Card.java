@@ -19,16 +19,16 @@ import java.util.List;
 public class Card {
     
     private String cardFace, suit;
-    private Image image;
-    private int value;
+    private String fileName;
+   
    /**
     * Default Constructor for Card class
     */
     public Card() {
-        setCardFace(cardFace);
-        setSuit(suit);
-        String fileName = cardFace + "_of_"+suit+".png";
-        image = new Image("./images/"+fileName);
+        cardFace = " ";
+        suit = " ";
+        fileName = cardFace + "_of_"+suit+".png";
+        
     }
     /**
      * This method gets face representative of a playing card for the Card class
@@ -38,86 +38,32 @@ public class Card {
         return cardFace;
     }
 
-    /**
-     * This method validates the strings that are valid for
-     * card representation.
-     * 
-     * @return 2,3,4,5,6,7,8,9,10,jack,queen,king,ace
-     */
-    public static List<String> getValidCardFaces()
-    {
-        return Arrays.asList("2","3","4","5","6","7","8","9","10","jack",
-                            "queen","king","ace");
+
+    public String getFileName(){
+        return this.fileName;
     }
-    /**
-     * Gets image of a card object
-     * @return image of card
-     */
-    public Image getImage() {
-        return this.image;
-    }
-    /**
-     * Gets value of a card object
-     * @return 1,2,3,4,5,6,7,8,9,10,11,12,13
-     */
-     public int getCardValue(){
-        return this.value;
-    }
-    /**
-     * Sets image for card object
-     * @param image filename of the image for the object to be set
-     */
-    public void setImage(Image image) {
-        this.image = image;
-    }
+        public String getSuit() {
+        return suit;
+    }  
+
 
     /**
-     * This method sets the face to be used by the Card Object
-     * to generate an image, using a list
-     * @param cardFace 2,3,4,5,6,7,8,9,10,jack,queen,king,ace
-     * @throws IllegalArgumentException to detect if valid strings for
-     * card objects exist
+     * 
      */
     public void setCardFace(String cardFace) {
-        List<String> validCardFaces = getValidCardFaces();
-        cardFace = cardFace.toLowerCase();
-
-        if (validCardFaces.contains(cardFace))
             this.cardFace = cardFace;
-        else
-            throw new IllegalArgumentException("Valid face names are: "+
-                            validCardFaces);
+      
     }
     /**
      * Returns suit of a card object
      * @return  spades, hearts, clubs, diamonds
      */
-    public String getSuit() {
-        return suit;
-    }
 
-    /**
-     * Returns a list of valid suits of a card
-     * 
-     * @return spades, hearts, clubs, diamonds
-     */
-    public static List<String> getValidSuits()
-    {
-        return Arrays.asList("hearts","diamonds","spades","clubs");
+    public void setSuit(String suit){
+        this.suit = suit;
     }
-    /**
-     * Sets suit of a card object
-     * @param suit spades, hearts, clubs, diamonds
-     * @throws IllegalArgumentException if suit is misspelled, the program will let you know
-     */
-    public void setSuit(String suit) {
-        List<String> validSuits = getValidSuits();
-        suit = suit.toLowerCase();
-
-        if (validSuits.contains(suit))
-            this.suit = suit;
-        else
-            throw new IllegalArgumentException("valid suits are: "+ validSuits);
+    public void setFileName(String cardFace,String suit){
+        this.fileName= cardFace + "_of_"+suit+".png";
     }
     /**
      * Overrides toString method of object class, 
@@ -126,6 +72,6 @@ public class Card {
     @Override
     public String toString()
     {
-        return String.format("This card is %s of %s, it's image is at %s", cardFace, suit,image);
+        return String.format("This card is %s of %s.", cardFace, suit);
     }
 }
