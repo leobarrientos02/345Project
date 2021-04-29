@@ -1,15 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package semesterproject;
-
-
-import javafx.scene.image.Image;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * Card class - This class will represent a playing card by suit,
  * face, and value, and also generate an image for display.
@@ -37,31 +27,43 @@ public class Card {
     public String getCardFace() {
         return cardFace;
     }
-
+    /**
+     * Gets fileName string for card object
+     * @return fileName
+     */
 
     public String getFileName(){
         return this.fileName;
     }
+    /**
+     * Gets suit string of card object
+     * @return suit
+     */
         public String getSuit() {
         return suit;
     }  
 
 
     /**
-     * 
+     * Sets face of card object
+     * @param cardFace 
      */
     public void setCardFace(String cardFace) {
             this.cardFace = cardFace;
       
     }
     /**
-     * Returns suit of a card object
-     * @return  spades, hearts, clubs, diamonds
+     * sets suit of card object
+     * @param suit 
      */
-
     public void setSuit(String suit){
         this.suit = suit;
     }
+    /**
+     * Sets filename of card object
+     * @param cardFace
+     * @param suit 
+     */
     public void setFileName(String cardFace,String suit){
         this.fileName= cardFace + "_of_"+suit+".png";
     }

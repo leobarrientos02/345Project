@@ -26,6 +26,7 @@ public class Expression extends BasicMath {
      * retrieves a value
      * @return 1 value
      */
+    @Override
     public int getValue1(){
         return value1;
     }
@@ -33,6 +34,7 @@ public class Expression extends BasicMath {
      * sets a value
      * @param value number to be evaluated 
      */
+    @Override
     public void setValue1(int value){
         value1 = value;
     }
@@ -40,6 +42,7 @@ public class Expression extends BasicMath {
      * retrieves value 2
      * @return value 2
      */
+    @Override
     public int getValue2(){
         return value2;
     }
@@ -47,6 +50,7 @@ public class Expression extends BasicMath {
      * Sets value 2
      * @param value -  value 2 to be evaluated 
      */
+    @Override
     public void setValue2(int value){
         value2 = value;
     } 
@@ -82,6 +86,7 @@ public class Expression extends BasicMath {
      * Retrieves first operand in string version
      * @return string representation of operand 1
      */
+    @Override
     public String getOp1(){
         return op1;
     }
@@ -154,7 +159,8 @@ public class Expression extends BasicMath {
      * Returns String of the expression to be evaluated
      * @return String of expression
      */
-    public String PrintExpression(){
+    @Override
+    public String printExpression(){
         
         
         String Expression = String.valueOf(value1)+ op1 + String.valueOf(value2) + op2 +
