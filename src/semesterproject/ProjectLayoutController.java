@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package semesterproject;
 
 import java.io.File;
@@ -31,10 +26,7 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.script.ScriptEngine;
@@ -81,7 +73,6 @@ public class ProjectLayoutController implements Initializable {
     private String userInput;
 
 
-    private Expression express;
 
     @FXML
     private AnchorPane anchorPane;
@@ -118,7 +109,7 @@ public class ProjectLayoutController implements Initializable {
     /**
      * printTime is an extension of TimerTask,to keep track of elapsed game time
      */
-    class printTime extends TimerTask{
+    public class printTime extends TimerTask{
  
 
         @Override
@@ -169,8 +160,6 @@ public class ProjectLayoutController implements Initializable {
      */
     public Card generateRandomCard(Card card){
         //Generate a random card from the deck
-       
-        fileName="";
         String value ="";
         String cardType = "";
         //Generate Random number to choose from the array

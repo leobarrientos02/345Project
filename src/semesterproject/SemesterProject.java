@@ -22,7 +22,7 @@ public class SemesterProject extends Application{
     private menu m;
     @Override
     /**
-     * Set's the GUI up to read from ProjectLayout.fxml
+     * Set's the GUI up to read from the FXML file
      */
     public void start(Stage stage) throws Exception{
     Parent root = FXMLLoader.load(getClass().getResource("ProjectLayout.fxml"));

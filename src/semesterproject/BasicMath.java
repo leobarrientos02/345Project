@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package semesterproject;
 
 /**
@@ -12,49 +8,49 @@ package semesterproject;
  */
 public class BasicMath {
     
-    private float a;
-    private float b;
-    private String operation;
+    protected int value1;
+    protected int value2;
+    protected String operation;
     /**
      * Sets 1 value of object
-     * @param v value of number
+     * @param value1 value of number
      */
-    public void setA( float v){
-        a = v;
+    public void setValue1(int value1){
+       this.value1 = value1;
     }
     /**
      *  Sets 1 value of object
-     * @param v value of number
+     * @param value2 value of number
      */
-    public void setB( float v){
-        b = v;
+    public void setValue2(int value2){
+        this.value2 = value2;
     }
     /**
      * Sets operation for object
      * @param o operand to be used
      */
     public void setOperation(String o){
-        operation =  o;
+        this.operation =  o;
     }
     /**
      * Gets value of "a" for object
      * @return float a
      */
-    public float getA(){
-        return a;
+    public int getValue1(){
+        return this.value1;
     }
     /**
      * Gets value of "b" for object
      * @return b
      */
-    public float getB(){
-        return b;
+    public int getValue2(){
+        return this.value2;
     }
     /**
      * Gets operation of this object
      * @return + - * /
      */
-    public String getO(){
+    public String getOp1(){
         return operation;
     }
     
@@ -62,21 +58,21 @@ public class BasicMath {
      * Default Constructor
      */
     public BasicMath(){
-        a= 0;
-        b = 0;
-        operation = " ";
+        this.value1= 0;
+        this.value2 = 0;
+        this.operation = " ";
     }
     
     /**
      * Overloaded constructor
-     * @param v1 -value1
-     * @param v2 - value2
+     * @param value1 -value1
+     * @param value2 - value2
      * @param o - operation to be performed
      */
-    public BasicMath(float v1, float v2, String o){
-        a = v1;
-        b = v2;
-        operation = o;
+    public BasicMath(int value1, int value2, String o){
+        this.value1 = value1;
+        this.value2 = value2;
+        this.operation = o;
     }
     /**
      * This method takes 2 numbers and performs simple arithmetic
@@ -85,7 +81,7 @@ public class BasicMath {
      * @param c - operation to be performed
      * @return - result of operation performed on 2 values
      */
-    public float applyOperator(float a, float b, char c) {
+    public float applyOperator(int a, int b, char c) {
         switch (c) {
             case '+':
                 return a + b;
@@ -101,16 +97,12 @@ public class BasicMath {
     }
     /**
      * This method returns a string of the result of the operator
-     * @param v1 -value1
-     * @param v2 -value2
-     * @param c - operator
      * @return  String value of math operation
      */
-    public String printExpression(int v1, int v2, char c){
+    public String printExpression(){
         
-        float answer = applyOperator(v1,v2,c);
-        
-        return String.valueOf(answer);
+       String Expression = String.valueOf(value1)+ operation + String.valueOf(value2);
+        return Expression;
     }
     /**
      * This method overrides the object toString method 
@@ -118,6 +110,6 @@ public class BasicMath {
      */
     @Override
     public String toString(){
-        return String.format("From the BasicMath Class : %s "+"%s"+"%s is the expression.",a,operation,b);
+        return String.format("From the BasicMath Class : %s "+"%s"+"%s is the expression.",value1,operation,value2);
     }
 } 
