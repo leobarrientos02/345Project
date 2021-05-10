@@ -40,6 +40,7 @@ public class menu {
                 + " expression that equals 24.\nDO YOU THINK YOU CAN TAKE ON THIS CHALLENGE?");
         menu.showAndWait().ifPresent(response -> {
                         if (response == ButtonType.OK) {
+                           
                             menu.close();
                         }
                         else if (response == ButtonType.CANCEL){

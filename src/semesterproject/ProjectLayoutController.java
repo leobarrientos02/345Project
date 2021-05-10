@@ -151,7 +151,6 @@ public class ProjectLayoutController implements Initializable {
             Logger.getLogger(ProjectLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
     /**
      * This method takes in a card object, and uses a RNG system
      * to choose an unused card for the game
@@ -358,6 +357,8 @@ public class ProjectLayoutController implements Initializable {
         midRightBox.setImage(image2);
         midLeftBox.setImage(image3);
         leftBox.setImage(image4);
+        timer1.schedule( new printTime(), 0, 1000);
+        logAction("Started timer");
     }
     /**
      * displaySolution is a method which displays the solution
@@ -422,7 +423,8 @@ public class ProjectLayoutController implements Initializable {
         checkAnswer.clear();
         showRandomCard();
         answerDisplay.clear();
-       
+        timer1.schedule( new printTime(), 0, 1000);
+        logAction("Started timer");
         logAction("generated a new game");
     }
     /**

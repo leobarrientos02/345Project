@@ -1,1 +1,70 @@
 GAME DATA
+05/09/2021, 20:17:17  ----> User GAME SESSION INITIALIZE.
+05/09/2021, 20:17:17  ----> User asked for new deck.
+05/09/2021, 20:17:24  ----> User Started timer.
+05/09/2021, 20:19:46  ----> User GAME SESSION INITIALIZE.
+05/09/2021, 20:19:46  ----> User asked for new deck.
+05/09/2021, 20:21:01  ----> User GAME SESSION INITIALIZE.
+05/09/2021, 20:21:01  ----> User asked for new deck.
+05/09/2021, 20:21:06  ----> User Started timer.
+05/09/2021, 20:21:07  ----> User reset timer.
+05/09/2021, 20:21:08  ----> User Started timer.
+05/09/2021, 20:21:09  ----> User reset timer.
+05/09/2021, 20:21:10  ----> User asked for new deck.
+05/09/2021, 20:21:10  ----> User generated a new game.
+05/09/2021, 20:21:11  ----> User reset timer.
+05/09/2021, 20:21:13  ----> User reset timer.
+05/09/2021, 20:21:23  ----> User asked for Solution.
+05/09/2021, 20:21:25  ----> User asked for new deck.
+05/09/2021, 20:21:25  ----> User generated a new game.
+05/09/2021, 20:21:26  ----> User asked for Solution.
+05/09/2021, 20:21:58  ----> User reset timer.
+05/09/2021, 20:22:00  ----> User asked for new deck.
+05/09/2021, 20:22:00  ----> User generated a new game.
+05/09/2021, 20:32:20  ----> User Started timer.
+05/09/2021, 20:32:21  ----> User Started timer.
+05/09/2021, 20:32:21  ----> User reset timer.
+05/09/2021, 20:32:25  ----> User asked for new deck.
+05/09/2021, 20:32:25  ----> User generated a new game.
+05/09/2021, 20:32:26  ----> User reset timer.
+05/09/2021, 20:33:37  ----> User Shutdown Application.
+05/09/2021, 20:43:10  ----> User GAME SESSION INITIALIZE.
+05/09/2021, 20:43:10  ----> User asked for new deck.
+05/09/2021, 20:43:10  ----> User Started timer.
+05/09/2021, 20:43:16  ----> User asked for new deck.
+05/09/2021, 20:43:16  ----> User Started timer.
+05/09/2021, 20:43:16  ----> User generated a new game.
+05/09/2021, 20:43:17  ----> User reset timer.
+05/09/2021, 20:43:24  ----> User Shutdown Application.
+05/09/2021, 20:49:26  ----> User GAME SESSION INITIALIZE.
+05/09/2021, 20:49:26  ----> User asked for new deck.
+05/09/2021, 20:49:26  ----> User Started timer.
+05/09/2021, 20:49:30  ----> User Started timer.
+05/09/2021, 20:49:31  ----> User reset timer.
+05/09/2021, 20:49:33  ----> User Started timer.
+05/09/2021, 20:49:34  ----> User reset timer.
+05/09/2021, 20:49:36  ----> User reset timer.
+05/09/2021, 20:49:37  ----> User Started timer.
+05/09/2021, 20:49:38  ----> User Started timer.
+05/09/2021, 20:49:45  ----> User reset timer.
+05/09/2021, 20:49:48  ----> User reset timer.
+05/09/2021, 20:49:51  ----> User reset timer.
+05/09/2021, 20:49:56  ----> User reset timer.
+05/09/2021, 20:49:59  ----> User Shutdown Application.
+05/09/2021, 20:51:25  ----> User GAME SESSION INITIALIZE.
+05/09/2021, 20:51:25  ----> User asked for new deck.
+05/09/2021, 20:51:25  ----> User Started timer.
+05/09/2021, 20:51:29  ----> User reset timer.
+05/09/2021, 20:51:34  ----> User asked for new deck.
+05/09/2021, 20:51:34  ----> User Started timer.
+05/09/2021, 20:51:34  ----> User Started timer.
+05/09/2021, 20:51:34  ----> User generated a new game.
+05/09/2021, 20:51:39  ----> User Shutdown Application.
+05/09/2021, 21:01:36  ----> User GAME SESSION INITIALIZE.
+05/09/2021, 21:01:36  ----> User asked for new deck.
+05/09/2021, 21:01:36  ----> User Started timer.
+05/09/2021, 21:01:40  ----> User asked for new deck.
+05/09/2021, 21:01:40  ----> User Started timer.
+05/09/2021, 21:01:40  ----> User Started timer.
+05/09/2021, 21:01:40  ----> User generated a new game.
+05/09/2021, 21:01:42  ----> User reset timer.
