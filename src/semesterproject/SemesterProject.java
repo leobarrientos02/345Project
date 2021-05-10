@@ -34,6 +34,7 @@ public class SemesterProject extends Application{
     m = new menu();
     m.showMenu();
     }
+    
     /**
      * Launches GUI automatically
      * @param args default argument
