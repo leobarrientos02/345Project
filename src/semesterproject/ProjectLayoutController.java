@@ -357,7 +357,7 @@ public class ProjectLayoutController implements Initializable {
         midRightBox.setImage(image2);
         midLeftBox.setImage(image3);
         leftBox.setImage(image4);
-        timer1.schedule( new printTime(), 0, 1000);
+       // timer1.schedule( new printTime(), 0, 1000);
         logAction("Started timer");
     }
     /**
@@ -423,7 +423,6 @@ public class ProjectLayoutController implements Initializable {
         checkAnswer.clear();
         showRandomCard();
         answerDisplay.clear();
-        timer1.schedule( new printTime(), 0, 1000);
         logAction("Started timer");
         logAction("generated a new game");
     }
@@ -534,6 +533,7 @@ public class ProjectLayoutController implements Initializable {
                                     answerDisplay.clear();
   
                                     // Resets the time
+                                    
                                     timer111.clear();
                                     seconds = 0;
                                     minutes = 0;
